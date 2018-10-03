@@ -1,8 +1,9 @@
 # zlack
 
-##Schema
+## Schema
 
-users
+### users
+------
 
 | column name    | Data type  | details                   |
 | -------------- |:----------:| -------------------------:|
