@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class Greeting extends React.Component {
 
   componentDisMount() {
-     
+
   }
 
   render() {
@@ -18,9 +18,9 @@ class Greeting extends React.Component {
     } else {
      return (
         <div>
-        <Link to="/login">Login</Link>
-        <br></br>
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/login"> <button>Sign In</button></Link>
+        <span> </span>
+        <Link to="/signup"><button>Sign Up</button></Link>
         </div>);
     }
 

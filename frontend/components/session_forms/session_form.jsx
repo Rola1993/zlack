@@ -6,10 +6,15 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoSubmit = this.demoSubmit.bind(this);
     this.state = {
       username: "",
       password: ""
     };
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   update(field) {
@@ -36,12 +41,21 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  demoSubmit(e) {
+    e.preventDefault();
+    const user = {
+      username: "la101",
+      password: "19931210"
+    };
+    this.props.processForm(user);
+  }
+
    render() {
     return (
-      <div>
-        <h3>{this.props.formType}</h3>
-          {this.renderErrors()}
+      <div className="session">
         <form onSubmit={this.handleSubmit}>
+          <h3>{this.props.formType}</h3>
+            {this.renderErrors()}
           <label>Username:
              <input type='text' value={this.state.username} onChange={this.update('username')} />
           </label>
@@ -53,6 +67,7 @@ class SessionForm extends React.Component {
           <br></br>
           <br></br>
           <input type="submit" value={this.props.formType} />
+          <input type="submit" value={'Demo Login'} onClick={this.demoSubmit} />
         </form>
       </div>
     );
