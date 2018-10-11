@@ -18,13 +18,11 @@ class Greeting extends React.Component {
     } else {
      return (
         <div>
-        <Link to="/login"> <button>Sign In</button></Link>
+        <Link to="/login"><button>Sign In</button></Link>
         <span> </span>
         <Link to="/signup"><button>Sign Up</button></Link>
         </div>);
     }
-
-
   }
 }
 

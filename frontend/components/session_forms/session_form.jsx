@@ -56,18 +56,22 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <h3>{this.props.formType}</h3>
             {this.renderErrors()}
-          <label>Username:
-             <input type='text' value={this.state.username} onChange={this.update('username')} />
+          <label>Enter your <strong>username</strong> and <strong>password</strong></label>
+          <br></br>
+          <br></br>
+          <label>
+             <input type='text' placeholder='username' value={this.state.username} onChange={this.update('username')} />
           </label>
            <br></br>
            <br></br>
-          <label>Password:
-             <input type='password' value={this.state.password} onChange={this.update('password')} />
+          <label>
+             <input type='password' placeholder='password' value={this.state.password} onChange={this.update('password')} />
           </label>
           <br></br>
           <br></br>
-          <input type="submit" value={this.props.formType} />
-          <input type="submit" value={'Demo Login'} onClick={this.demoSubmit} />
+          <input type="submit" value="Continue ->" />
+          {" "}
+          <input type="submit" onClick={this.demoSubmit} value='Guest Login'/>
         </form>
       </div>
     );

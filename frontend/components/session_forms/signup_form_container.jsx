@@ -4,7 +4,7 @@ import SessionForm from './session_form';
 
 const mapStateToProps = (state) => ({
   errors: state.errors.session,
-  formType: 'signup'
+  formType: 'Start with a workspace'
 });
 
 const mapDispatchToProps = dispatch => ({
