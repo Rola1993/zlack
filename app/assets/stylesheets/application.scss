@@ -15,6 +15,25 @@
 $zlack: image_path('zlack.png');
 $home: image_path('home.png');
 //css reset
+
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small, input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
 div {
   margin: 0;
   padding: 0;
@@ -65,7 +84,7 @@ button{
   padding: 10px;
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
-
+  text-align: center;
 }
 
 .logo {
@@ -104,6 +123,7 @@ button{
     }
 
     input {
+      text-align: center;
       height: 40px;
       width: 200px;
       border: solid 1px rgba(0, 0, 0, 0.60);
@@ -111,8 +131,9 @@ button{
     }
 
     input::placeholder {
-      padding-left:10px;
-      font-size: 23px;
+      text-align: center;
+      padding-top:0px;
+      font-size: 20px;
       color: rgba(0, 0, 0, 0.35);
     }
 
