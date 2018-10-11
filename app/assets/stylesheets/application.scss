@@ -12,7 +12,8 @@
  *
  *= require_self
  */
-
+$zlack: image_path('zlack.png');
+$home: image_path('home.png');
 //css reset
 div {
   margin: 0;
@@ -34,7 +35,7 @@ body {
     justify-content: flex-start;
     width:480px;
     height:480px;
-    background-image: url(/assets/home.png);
+    background-image: url($home);
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -74,7 +75,7 @@ button{
 .logo {
   width:120px;
   height: 80px;
-  background-image: url(/assets/zlack.png);
+  background-image: url($zlack);
   background-size: contain;
   background-repeat: no-repeat;
 }
