@@ -16,21 +16,14 @@ $zlack: image_path('zlack.png');
 $home: image_path('home.png');
 //css reset
 
-html, body, header, nav, h1, a,
-ul, li, strong, main, button, i,
-section, img, div, h2, p, form,
-fieldset, label, input, textarea,
-span, article, footer, time, small, input {
+button {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
-  font: inherit;
   color: inherit;
-  text-align: inherit;
-  text-decoration: inherit;
+  text-align: center;
   vertical-align: inherit;
-  box-sizing: inherit;
   background: transparent;
 }
 
@@ -61,20 +54,47 @@ div {
 
     h1 {
       margin-top: 0;
-      color: #323648;
+      margin-bottom: 16px;
+      color: #313648;
       font-size: 83px;
       font-family: serif;
       font-weight: 800;
     }
 
     p {
+      margin-top: 0;
+      width: 550px;
       font-weight: 400;
-      font-size: 19px;
+      font-size: 20px;
       color: #6c6f7f;
       font-family: 'Nunito', sans-serif;
       line-height: 30px;
+      margin-bottom: 25px;
+    }
+
+    .p2 {
+      margin-top: 5px;
+      font-weight: 400;
+      font-size: 14px;
+      color: #6c6f7f;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 100;
+      line-height: 30px;
+    }
+
+    button {
+      background-color: #3F46AD;
+      font-size: 14px;
+      font-weight: bold;
+      color: #fff;
+      width: 170px;
+      height: 60px;
+      border: 0px;
+      border-radius: 4px;
+      font-family: 'Nunito', sans-serif;
     }
   }
+
 }
 
 button{
@@ -84,7 +104,7 @@ button{
   padding: 10px;
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
-  text-align: center;
+
 }
 
 .logo {
@@ -99,6 +119,21 @@ button{
   border-top: solid 1px rgba(0, 0, 0, 0.13);
   background-color: #f9f9f9;
   height: 600px;
+
+  li {
+    display: block;
+    margin-top: 5px;
+    margin-left: 285px;
+    font-family: 'Yantramanav', sans-serif;
+    background-color: #fff;
+    width: 500px;
+    height: 30px;
+    padding-top: 10px;
+    padding-left: 10px;
+    border-radius: 4px;
+    border: solid 1px rgba(0, 0, 0, 0.13);
+    border-left: solid 5px #D72A3E;
+  }
 
   form {
     margin-top: 35px;
@@ -123,7 +158,6 @@ button{
     }
 
     input {
-      text-align: center;
       height: 40px;
       width: 200px;
       border: solid 1px rgba(0, 0, 0, 0.60);
@@ -131,9 +165,8 @@ button{
     }
 
     input::placeholder {
-      text-align: center;
-      padding-top:0px;
-      font-size: 20px;
+      padding-left:10px;
+      font-size: 23px;
       color: rgba(0, 0, 0, 0.35);
     }
 

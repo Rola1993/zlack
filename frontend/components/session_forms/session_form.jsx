@@ -25,13 +25,13 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
-        {this.props.errors.map((error, idx) => (
-          <li key={`error-${idx}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
+        <ul>
+          {this.props.errors.map((error, idx) => (
+            <li key={`error-${idx}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
     );
   }
 
@@ -47,15 +47,15 @@ class SessionForm extends React.Component {
       username: "la101",
       password: "19931210"
     };
-    this.props.processForm(user);
+    this.props.processDemo(user);
   }
 
    render() {
     return (
       <div className="session">
+          {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
           <h3>{this.props.formType}</h3>
-            {this.renderErrors()}
           <label>Enter your <strong>username</strong> and <strong>password</strong></label>
           <br></br>
           <br></br>
