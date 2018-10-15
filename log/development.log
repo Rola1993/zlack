@@ -28357,3 +28357,48 @@ Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, H
 Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:20 -0700
 ChatChannel is transmitting the subscription confirmation
 ChatChannel is streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:57:33 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:33 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:33 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:57:46 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:46 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:46 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:58:01 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:58:01 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:58:01 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:58:19 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:58:19 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:58:19 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:58:32 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:58:32 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:58:32 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:58:48 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:58:48 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:58:48 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:59:04 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:59:04 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:59:04 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:59:24 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:59:24 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:59:24 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:59:40 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:59:40 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:59:40 -0700
