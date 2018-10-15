@@ -16,10 +16,11 @@ class Chatroom extends React.Component {
       currentChatMessage: '',
       chatLogs: []
     };
-
   }
 
   componentDidMount() {
+    this.props.requestUsers();
+    this.props.requestChannels();
     this.props.requestMessages();
   }
 
@@ -34,7 +35,6 @@ class Chatroom extends React.Component {
   }
 
   createSocket() {
-    let userId = this.props.currentUserId;
     let cable = Cable.createConsumer('ws://localhost:3000/cable');
     this.chats = cable.subscriptions.create({
       channel: 'ChatChannel'
@@ -56,7 +56,7 @@ class Chatroom extends React.Component {
 
   renderChatLog() {
     const users = this.props.users;
-    return this.state.chatLogs.map((el) => {
+    return this.state.chatLogs.map((el, idx) => {
       return (
         <li key={`el-${idx}`}>
           <div className="message-sender">
@@ -66,7 +66,7 @@ class Chatroom extends React.Component {
           <div className="message-content">
             <div className='chat-user'>{ users[el.user_id].username}</div>
             <div className='chat-message'>{ el.body }</div>
-            <div className='chat-created-at'>{ moment(el.created_at).format('hh:mm a')  }</div>
+            <div className='chat-created-at'>{ el.created_at }</div>
           </div>
         </li>
       );
@@ -75,7 +75,7 @@ class Chatroom extends React.Component {
 
   handleSendEvent(event) {
     event.preventDefault();
-    this.chats.create(this.state.currentChatMessage, 1);
+    this.chats.create(this.state.currentChatMessage, this.props.currentUserId);
     this.setState({
       currentChatMessage: ''
     });
@@ -90,6 +90,7 @@ class Chatroom extends React.Component {
   render() {
     const users = this.props.users;
     const messages = this.props.messages;
+    const channels = this.props.channels;
     window.messages = messages;
     window.users = users;
 
@@ -97,6 +98,13 @@ class Chatroom extends React.Component {
       <div className='chatroom'>
         <div className='sidebar'>
           <h3>App Academy</h3>
+          <ul>
+            {channels.map((channel, idx) => (
+              <li key={`channel-${idx}`}>
+                {channel.name}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className='chatbox'>
@@ -113,7 +121,7 @@ class Chatroom extends React.Component {
                       <div className="message-content">
                         <div className='chat-user'>{ users[el.user_id].username}</div>
                         <div className='chat-message'>{ el.body }</div>
-                        <div className='chat-created-at'>{ moment(el.created_at).format('hh:mm a') }</div>
+                        <div className='chat-created-at'>{ el.created_at }</div>
                       </div>
                     </li>
                   )}

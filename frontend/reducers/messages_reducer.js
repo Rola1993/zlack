@@ -6,7 +6,7 @@ const messagesReducer = (state = [], action) => {
     case RECEIVE_MESSAGES:
       return action.messages;
     default:
-      return [];
+      return state;
   }
 };
 
