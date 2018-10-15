@@ -35,7 +35,12 @@ class Chatroom extends React.Component {
   }
 
   createSocket() {
-    let cable = Cable.createConsumer('ws://localhost:3000/cable');
+    let cable;
+    if (process.env.NODE_ENV !== 'production') {
+      cable = Cable.createConsumer('http://localhost:3000/cable');
+    } else {
+      cable = Cable.createConsumer('wss://zlack-la.herokuapp.com/cable');
+    }
     this.chats = cable.subscriptions.create({
       channel: 'ChatChannel'
     }, {

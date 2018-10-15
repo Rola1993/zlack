@@ -28126,3 +28126,234 @@ ChatChannel#create({"body"=>"i m la", "user_id"=>1})
 [ActiveJob] [MessageCreationEventBroadcastJob] [7dd2b760-5235-4d6f-b9fc-e15f479ce6ab] Performed MessageCreationEventBroadcastJob (Job ID: 7dd2b760-5235-4d6f-b9fc-e15f479ce6ab) from Async(default) in 0.47ms
 ChatChannel transmitting {"id"=>16, "created_at"=>"21:34", "body"=>"i m la", "user_id"=>1} (via streamed from chat_channel)
 ChatChannel transmitting {"id"=>16, "created_at"=>"21:34", "body"=>"i m la", "user_id"=>1} (via streamed from chat_channel)
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:54:10 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:10 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:10 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:54:16 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:16 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:16 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:54:20 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:20 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:20 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:54:27 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:27 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:27 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:54:33 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:33 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:33 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:54:33 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:33 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:33 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:54:42 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:42 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:42 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:54:52 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:52 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:54:52 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:55:01 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:55:01 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:55:01 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:55:13 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:55:13 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:55:13 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:55:25 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:55:25 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:55:25 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:55:37 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:55:37 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:55:37 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:55:50 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:55:50 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:55:50 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:56:03 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:56:03 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:56:03 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:56:17 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:56:17 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:56:17 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:56:21 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:56:21 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:56:21 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:56:34 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:56:34 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:56:34 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:56:38 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:56:38 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:56:38 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:56:49 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:56:49 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:56:49 -0700
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:57:04 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:04 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:04 -0700
+Started GET "/" for 127.0.0.1 at 2018-10-15 14:57:13 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VHeVb--5hRauWsRZiRWzfQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 586ms (Views: 576.0ms | ActiveRecord: 3.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:14 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:57:14 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:14 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/api/users" for 127.0.0.1 at 2018-10-15 14:57:14 -0700
+Processing by Api::UsersController#index as JSON
+Started GET "/api/channels" for 127.0.0.1 at 2018-10-15 14:57:14 -0700
+Started GET "/api/messages" for 127.0.0.1 at 2018-10-15 14:57:14 -0700
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/users_controller.rb:4
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 1.5ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Processing by Api::ChannelsController#index as JSON
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VHeVb--5hRauWsRZiRWzfQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VHeVb--5hRauWsRZiRWzfQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mMessage Load (1.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/controllers/api/messages_controller.rb:5
+Completed 200 OK in 7ms (Views: 2.1ms | ActiveRecord: 3.5ms)
+
+
+  [1m[36mChannel Load (3.3ms)[0m  [1m[34mSELECT "channels".* FROM "channels"[0m
+  ↳ app/controllers/api/channels_controller.rb:5
+Completed 200 OK in 20ms (Views: 10.7ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-15 14:57:16 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VHeVb--5hRauWsRZiRWzfQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 34ms (Views: 31.6ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:16 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:57:16 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:16 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/api/users" for 127.0.0.1 at 2018-10-15 14:57:16 -0700
+Processing by Api::UsersController#index as JSON
+Started GET "/api/messages" for 127.0.0.1 at 2018-10-15 14:57:16 -0700
+Started GET "/api/channels" for 127.0.0.1 at 2018-10-15 14:57:16 -0700
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/users_controller.rb:4
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.9ms)
+
+
+Processing by Api::MessagesController#index as JSON
+Processing by Api::ChannelsController#index as JSON
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VHeVb--5hRauWsRZiRWzfQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VHeVb--5hRauWsRZiRWzfQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mMessage Load (1.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/controllers/api/messages_controller.rb:5
+Completed 200 OK in 10ms (Views: 2.0ms | ActiveRecord: 5.7ms)
+
+
+  [1m[36mChannel Load (2.4ms)[0m  [1m[34mSELECT "channels".* FROM "channels"[0m
+  ↳ app/controllers/api/channels_controller.rb:5
+Completed 200 OK in 8ms (Views: 1.9ms | ActiveRecord: 4.5ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/" for 127.0.0.1 at 2018-10-15 14:57:20 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VHeVb--5hRauWsRZiRWzfQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 35ms (Views: 32.3ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:20 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:57:20 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:20 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/api/users" for 127.0.0.1 at 2018-10-15 14:57:20 -0700
+Processing by Api::UsersController#index as JSON
+Started GET "/api/channels" for 127.0.0.1 at 2018-10-15 14:57:20 -0700
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/users_controller.rb:4
+Started GET "/api/messages" for 127.0.0.1 at 2018-10-15 14:57:20 -0700
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.9ms)
+
+
+Processing by Api::ChannelsController#index as JSON
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VHeVb--5hRauWsRZiRWzfQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VHeVb--5hRauWsRZiRWzfQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mChannel Load (2.4ms)[0m  [1m[34mSELECT "channels".* FROM "channels"[0m
+  ↳ app/controllers/api/channels_controller.rb:5
+Completed 200 OK in 9ms (Views: 1.9ms | ActiveRecord: 4.8ms)
+
+
+  [1m[36mMessage Load (3.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/controllers/api/messages_controller.rb:5
+Completed 200 OK in 8ms (Views: 2.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 14:57:20 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:20 -0700
+Request origin not allowed: https://zlack-la.herokuapp.com
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 14:57:20 -0700
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel

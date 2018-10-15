@@ -447,7 +447,12 @@ function (_React$Component) {
     value: function createSocket() {
       var _this2 = this;
 
-      var cable = actioncable__WEBPACK_IMPORTED_MODULE_2___default.a.createConsumer('ws://localhost:3000/cable');
+      var cable;
+
+      if (true) {
+        cable = actioncable__WEBPACK_IMPORTED_MODULE_2___default.a.createConsumer('http://localhost:3000/cable');
+      } else {}
+
       this.chats = cable.subscriptions.create({
         channel: 'ChatChannel'
       }, {
