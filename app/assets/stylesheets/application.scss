@@ -15,8 +15,11 @@
 $zlack: image_path('zlack.png');
 $home: image_path('home.png');
 //css reset
+li  {
+  list-style: none;
+}
 
-button {
+ul, button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -32,6 +35,7 @@ div {
   padding: 0px;
 }
 
+
 .chatroom {
   margin-left: 0px;
   padding-left: 0px;
@@ -40,7 +44,6 @@ div {
     margin-left: 0px;
     padding-left: 0px;
     position: fixed;
-    display: flex;
     z-index: 1;
     width: 220px;
     min-height:1000px;
@@ -50,16 +53,29 @@ div {
   }
 
   .chatbox{
-    position: relative;
-    left: 250px;
 
-    li {
-      color: black;
 
-      span {
-        width: 20px;
-        height: 10px;
+    .chat-logs {
+      position: relative;
+
+      li {
+        width: 800px;
+        margin-left: 290px;
+        text-align: left;
+
+        .message-conent {
+
+        }
       }
+      .message-sender {
+        position: fixed;
+        left: 245px;
+        img {
+          border-radius: 4px;
+        }
+      }
+
+
     }
 
 

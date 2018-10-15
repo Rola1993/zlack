@@ -6,6 +6,7 @@ import {
   Link
 } from 'react-router-dom';
 import Cable from 'actioncable';
+import moment from 'moment';
 
 class Chatroom extends React.Component {
 
@@ -57,11 +58,16 @@ class Chatroom extends React.Component {
     const users = this.props.users;
     return this.state.chatLogs.map((el) => {
       return (
-        <li key={`chat_${el.id}`}>
-          <img src={users[el.user_id].img_url}/>
-          <span className='chat-user'>{ users[el.user_id].username }</span>
-          <span className='chat-message'>{ el.body }</span>
-          <span className='chat-created-at'>{ el.created_at }</span>
+        <li key={`el-${idx}`}>
+          <div className="message-sender">
+            <img src={users[el.user_id].img_url}
+              height="40" width="40"/>
+          </div>
+          <div className="message-content">
+            <div className='chat-user'>{ users[el.user_id].username}</div>
+            <div className='chat-message'>{ el.body }</div>
+            <div className='chat-created-at'>{ moment(el.created_at).format('hh:mm a')  }</div>
+          </div>
         </li>
       );
     });
@@ -100,15 +106,20 @@ class Chatroom extends React.Component {
 
                     return (
                     <li key={`el-${idx}`}>
-                      <img src={users[el.user_id].img_url}/>
-                      <span className='chat-user'>{ users[el.user_id].username}</span>
-                      <span className='chat-message'>{ el.body }</span>
-                      <span className='chat-created-at'>{ el.created_at }</span>
+                      <div className="message-sender">
+                        <img src={users[el.user_id].img_url}
+                          height="40" width="40"/>
+                      </div>
+                      <div className="message-content">
+                        <div className='chat-user'>{ users[el.user_id].username}</div>
+                        <div className='chat-message'>{ el.body }</div>
+                        <div className='chat-created-at'>{ moment(el.created_at).format('hh:mm a') }</div>
+                      </div>
                     </li>
                   )}
                 )}
+                  { this.renderChatLog() }
                 </ul>
-                { this.renderChatLog() }
               </div>
               <input
                 onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
