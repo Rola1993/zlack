@@ -28109,3 +28109,20 @@ ChatChannel#create({"body"=>"I m peter", "user_id"=>2})
 [ActiveJob] [MessageCreationEventBroadcastJob] [9a90ff1a-0ace-490e-bccd-9b0b2c580974] Performed MessageCreationEventBroadcastJob (Job ID: 9a90ff1a-0ace-490e-bccd-9b0b2c580974) from Async(default) in 0.81ms
 ChatChannel transmitting {"id"=>15, "created_at"=>"21:27", "body"=>"I m peter", "user_id"=>2} (via streamed from chat_channel)
 ChatChannel transmitting {"id"=>15, "created_at"=>"21:27", "body"=>"I m peter", "user_id"=>2} (via streamed from chat_channel)
+ChatChannel#create({"body"=>"i m la", "user_id"=>1})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chat_channel.rb:9
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chat_channel.rb:9
+  [1m[36mMessage Create (1.3ms)[0m  [1m[32mINSERT INTO "messages" ("body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "i m la"], ["created_at", "2018-10-15 21:34:09.006231"], ["updated_at", "2018-10-15 21:34:09.006231"], ["user_id", 1]]
+  ↳ app/channels/chat_channel.rb:9
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chat_channel.rb:9
+[ActiveJob] Enqueued MessageCreationEventBroadcastJob (Job ID: 7dd2b760-5235-4d6f-b9fc-e15f479ce6ab) to Async(default) with arguments: #<GlobalID:0x00007f9fa5b68658 @uri=#<URI::GID gid://zlack/Message/16>>
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ /Users/laluo/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageCreationEventBroadcastJob] [7dd2b760-5235-4d6f-b9fc-e15f479ce6ab] Performing MessageCreationEventBroadcastJob (Job ID: 7dd2b760-5235-4d6f-b9fc-e15f479ce6ab) from Async(default) with arguments: #<GlobalID:0x00007f9fa5b58d98 @uri=#<URI::GID gid://zlack/Message/16>>
+[ActiveJob] [MessageCreationEventBroadcastJob] [7dd2b760-5235-4d6f-b9fc-e15f479ce6ab] [ActionCable] Broadcasting to chat_channel: {:id=>16, :created_at=>"21:34", :body=>"i m la", :user_id=>1}
+[ActiveJob] [MessageCreationEventBroadcastJob] [7dd2b760-5235-4d6f-b9fc-e15f479ce6ab] Performed MessageCreationEventBroadcastJob (Job ID: 7dd2b760-5235-4d6f-b9fc-e15f479ce6ab) from Async(default) in 0.47ms
+ChatChannel transmitting {"id"=>16, "created_at"=>"21:34", "body"=>"i m la", "user_id"=>1} (via streamed from chat_channel)
+ChatChannel transmitting {"id"=>16, "created_at"=>"21:34", "body"=>"i m la", "user_id"=>1} (via streamed from chat_channel)
