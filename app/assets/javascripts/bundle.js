@@ -86,6 +86,37 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/message_actions.js":
+/*!*********************************************!*\
+  !*** ./frontend/actions/message_actions.js ***!
+  \*********************************************/
+/*! exports provided: RECEIVE_MESSAGES, receiveMessages, fetchMessages */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MESSAGES", function() { return RECEIVE_MESSAGES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveMessages", function() { return receiveMessages; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessages", function() { return fetchMessages; });
+/* harmony import */ var _util_message_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/message_api_util */ "./frontend/util/message_api_util.js");
+
+var RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
+var receiveMessages = function receiveMessages(messages) {
+  return {
+    type: RECEIVE_MESSAGES,
+    messages: messages
+  };
+};
+var fetchMessages = function fetchMessages() {
+  return function (dispatch) {
+    return _util_message_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchMessages"]().then(function (messages) {
+      return dispatch(receiveMessages(messages));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -156,6 +187,37 @@ var signup = function signup(user) {
 
 /***/ }),
 
+/***/ "./frontend/actions/workspace_actions.js":
+/*!***********************************************!*\
+  !*** ./frontend/actions/workspace_actions.js ***!
+  \***********************************************/
+/*! exports provided: RECEIVE_WORKSPACES, receiveWorkspaces, fetchWorkspaces */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_WORKSPACES", function() { return RECEIVE_WORKSPACES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveWorkspaces", function() { return receiveWorkspaces; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchWorkspaces", function() { return fetchWorkspaces; });
+/* harmony import */ var _util_workspace_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/workspace_api_util */ "./frontend/util/workspace_api_util.js");
+
+var RECEIVE_WORKSPACES = "RECEIVE_WORKSPACES";
+var receiveWorkspaces = function receiveWorkspaces(workspaces) {
+  return {
+    type: RECEIVE_WORKSPACES,
+    workspaces: workspaces
+  };
+};
+var fetchWorkspaces = function fetchWorkspaces() {
+  return function (dispatch) {
+    return _util_workspace_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchWorkspaces"]().then(function (workspaces) {
+      return dispatch(receiveWorkspaces(workspaces));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/components/App.jsx":
 /*!*************************************!*\
   !*** ./frontend/components/App.jsx ***!
@@ -169,9 +231,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _greetings_greeting_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./greetings/greeting_container */ "./frontend/components/greetings/greeting_container.js");
-/* harmony import */ var _session_forms_login_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_forms/login_form_container */ "./frontend/components/session_forms/login_form_container.jsx");
-/* harmony import */ var _session_forms_signup_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_forms/signup_form_container */ "./frontend/components/session_forms/signup_form_container.jsx");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _chatrooms_chatroom_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./chatrooms/chatroom_container */ "./frontend/components/chatrooms/chatroom_container.js");
+/* harmony import */ var _workspaces_workspaces_list_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./workspaces/workspaces_list_container */ "./frontend/components/workspaces/workspaces_list_container.jsx");
+/* harmony import */ var _session_forms_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_forms/login_form_container */ "./frontend/components/session_forms/login_form_container.jsx");
+/* harmony import */ var _session_forms_signup_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_forms/signup_form_container */ "./frontend/components/session_forms/signup_form_container.jsx");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+
+
 
 
 
@@ -180,7 +246,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var homeContainer = function homeContainer() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "header-left"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "logo"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "header-right"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greetings_greeting_container__WEBPACK_IMPORTED_MODULE_2__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "home"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "homePic"
@@ -192,30 +266,30 @@ var homeContainer = function homeContainer() {
     className: "p2"
   }, "Already using zlack? ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/login"
-  }, "Sign in"))));
+  }, "Sign in")))));
 };
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "header-left"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "logo"
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "header-right"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greetings_greeting_container__WEBPACK_IMPORTED_MODULE_2__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
+    exect: true,
+    path: "/login",
+    component: _session_forms_login_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
+    exect: true,
+    path: "/signup",
+    component: _session_forms_signup_form_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["ProtectedRoute"], {
+    exact: true,
+    path: "/workspaces",
+    component: _workspaces_workspaces_list_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["ProtectedRoute"], {
+    exact: true,
+    path: "/chatroom",
+    component: _chatrooms_chatroom_container__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
     component: homeContainer
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
-    exect: true,
-    path: "/login",
-    component: _session_forms_login_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
-    exect: true,
-    path: "/signup",
-    component: _session_forms_signup_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "*",
     render: function render() {
@@ -227,6 +301,227 @@ var App = function App() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./frontend/components/chatrooms/chatroom.jsx":
+/*!****************************************************!*\
+  !*** ./frontend/components/chatrooms/chatroom.jsx ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var actioncable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! actioncable */ "./node_modules/actioncable/lib/assets/compiled/action_cable.js");
+/* harmony import */ var actioncable__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(actioncable__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var Chatroom =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Chatroom, _React$Component);
+
+  function Chatroom(props) {
+    var _this;
+
+    _classCallCheck(this, Chatroom);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Chatroom).call(this, props));
+    _this.state = {
+      currentChatMessage: '',
+      chatLogs: []
+    };
+    return _this;
+  }
+
+  _createClass(Chatroom, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.requestMessages();
+    }
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.createSocket();
+    }
+  }, {
+    key: "updateCurrentChatMessage",
+    value: function updateCurrentChatMessage(event) {
+      this.setState({
+        currentChatMessage: event.target.value
+      });
+    }
+  }, {
+    key: "createSocket",
+    value: function createSocket() {
+      var _this2 = this;
+
+      var userId = this.props.currentUserId;
+      var cable = actioncable__WEBPACK_IMPORTED_MODULE_2___default.a.createConsumer('ws://localhost:3000/cable');
+      this.chats = cable.subscriptions.create({
+        channel: 'ChatChannel'
+      }, {
+        connected: function connected() {},
+        received: function received(data) {
+          var chatLogs = _this2.state.chatLogs;
+          chatLogs.push(data);
+
+          _this2.setState({
+            chatLogs: chatLogs
+          });
+        },
+        create: function create(chatContent, userId) {
+          this.perform('create', {
+            body: chatContent,
+            user_id: userId
+          });
+        }
+      });
+    }
+  }, {
+    key: "renderChatLog",
+    value: function renderChatLog() {
+      var users = this.props.users;
+      return this.state.chatLogs.map(function (el) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: "chat_".concat(el.id)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: users[el.user_id].img_url
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "chat-user"
+        }, users[el.user_id].username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "chat-message"
+        }, el.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "chat-created-at"
+        }, el.created_at));
+      });
+    }
+  }, {
+    key: "handleSendEvent",
+    value: function handleSendEvent(event) {
+      event.preventDefault();
+      this.chats.create(this.state.currentChatMessage, 1);
+      this.setState({
+        currentChatMessage: ''
+      });
+    }
+  }, {
+    key: "handleChatInputKeyPress",
+    value: function handleChatInputKeyPress(event) {
+      if (event.key === 'Enter') {
+        this.handleSendEvent(event);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var users = this.props.users;
+      var messages = this.props.messages;
+      window.messages = messages;
+      window.users = users;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "chatroom"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sidebar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "App Academy")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "chatbox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "chat-logs"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, messages.map(function (el, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: "el-".concat(idx)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: users[el.user_id].img_url
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "chat-user"
+        }, users[el.user_id].username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "chat-message"
+        }, el.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "chat-created-at"
+        }, el.created_at));
+      })), this.renderChatLog()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onKeyPress: function onKeyPress(e) {
+          return _this3.handleChatInputKeyPress(e);
+        },
+        value: this.state.currentChatMessage,
+        onChange: function onChange(e) {
+          return _this3.updateCurrentChatMessage(e);
+        },
+        type: "text",
+        placeholder: "Enter your message...",
+        className: "chat-input"
+      })));
+    }
+  }]);
+
+  return Chatroom;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Chatroom);
+
+/***/ }),
+
+/***/ "./frontend/components/chatrooms/chatroom_container.js":
+/*!*************************************************************!*\
+  !*** ./frontend/components/chatrooms/chatroom_container.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _chatroom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chatroom */ "./frontend/components/chatrooms/chatroom.jsx");
+/* harmony import */ var _actions_message_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/message_actions */ "./frontend/actions/message_actions.js");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    messages: state.entities.messages,
+    currentUserId: state.session.id,
+    users: state.entities.users
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    requestMessages: function requestMessages() {
+      return dispatch(Object(_actions_message_actions__WEBPACK_IMPORTED_MODULE_2__["fetchMessages"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_chatroom__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
@@ -420,6 +715,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _greetings_greeting_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../greetings/greeting_container */ "./frontend/components/greetings/greeting_container.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -439,6 +735,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+
 
 
 
@@ -506,7 +804,15 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header-left"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "logo"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greetings_greeting_container__WEBPACK_IMPORTED_MODULE_2__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session"
       }, this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
@@ -527,7 +833,7 @@ function (_React$Component) {
         type: "submit",
         onClick: this.demoSubmit,
         value: "Guest Login"
-      })));
+      }))));
     }
   }]);
 
@@ -579,6 +885,122 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/workspaces/workspaces_list.jsx":
+/*!************************************************************!*\
+  !*** ./frontend/components/workspaces/workspaces_list.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _greetings_greeting_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../greetings/greeting_container */ "./frontend/components/greetings/greeting_container.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var WorkspacesList =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(WorkspacesList, _React$Component);
+
+  function WorkspacesList(props) {
+    _classCallCheck(this, WorkspacesList);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(WorkspacesList).call(this, props));
+  }
+
+  _createClass(WorkspacesList, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.requestWorkspaces();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header-left"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "logo"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greetings_greeting_container__WEBPACK_IMPORTED_MODULE_2__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "session"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Sign in to your workspace"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Choose a workspace below"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.workspaces[0].name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/chatroom"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "submit",
+        value: "Continue ->"
+      })))));
+    }
+  }]);
+
+  return WorkspacesList;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (WorkspacesList);
+
+/***/ }),
+
+/***/ "./frontend/components/workspaces/workspaces_list_container.jsx":
+/*!**********************************************************************!*\
+  !*** ./frontend/components/workspaces/workspaces_list_container.jsx ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _workspaces_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./workspaces_list */ "./frontend/components/workspaces/workspaces_list.jsx");
+/* harmony import */ var _actions_workspace_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/workspace_actions */ "./frontend/actions/workspace_actions.js");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    workspaces: state.entities.workspaces
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    requestWorkspaces: function requestWorkspaces() {
+      return dispatch(Object(_actions_workspace_actions__WEBPACK_IMPORTED_MODULE_2__["fetchWorkspaces"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_workspaces_list__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/entities_reducer.js ***!
@@ -590,10 +1012,16 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _workspaces_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./workspaces_reducer */ "./frontend/reducers/workspaces_reducer.js");
+/* harmony import */ var _messages_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./messages_reducer */ "./frontend/reducers/messages_reducer.js");
+
+
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  workspaces: _workspaces_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  messages: _messages_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -616,6 +1044,36 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/messages_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/messages_reducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_message_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/message_actions */ "./frontend/actions/message_actions.js");
+
+
+var messagesReducer = function messagesReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var nextState = [];
+
+  switch (action.type) {
+    case _actions_message_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_MESSAGES"]:
+      return action.messages;
+
+    default:
+      return [];
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (messagesReducer);
 
 /***/ }),
 
@@ -654,6 +1112,25 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
 //     session: []
 //   }
 // }
+
+/***/ }),
+
+/***/ "./frontend/reducers/selectors.js":
+/*!****************************************!*\
+  !*** ./frontend/reducers/selectors.js ***!
+  \****************************************/
+/*! exports provided: selectAllWorkspace */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectAllWorkspace", function() { return selectAllWorkspace; });
+/* harmony import */ var lodash_values__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/values */ "./node_modules/lodash/values.js");
+/* harmony import */ var lodash_values__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_values__WEBPACK_IMPORTED_MODULE_0__);
+
+var selectAllWorkspace = function selectAllWorkspace(state) {
+  return lodash_values__WEBPACK_IMPORTED_MODULE_0___default()(state.entities.workspaces);
+};
 
 /***/ }),
 
@@ -767,6 +1244,38 @@ var usersReducer = function usersReducer() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/workspaces_reducer.js":
+/*!*************************************************!*\
+  !*** ./frontend/reducers/workspaces_reducer.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_workspace_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/workspace_actions */ "./frontend/actions/workspace_actions.js");
+
+
+var workspacesReducer = function workspacesReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var nextState = [];
+
+  switch (action.type) {
+    case _actions_workspace_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_WORKSPACES"]:
+      return action.workspaces;
+
+    default:
+      return ["default"];
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (workspacesReducer); // action.workspaces.forEach( workspace => {
+//   nextState[workspace.id] = workspace;
+// });
+
+/***/ }),
+
 /***/ "./frontend/store/store.js":
 /*!*********************************!*\
   !*** ./frontend/store/store.js ***!
@@ -795,16 +1304,36 @@ var configureStore = function configureStore() {
 
 /***/ }),
 
+/***/ "./frontend/util/message_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/message_api_util.js ***!
+  \*******************************************/
+/*! exports provided: fetchMessages */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessages", function() { return fetchMessages; });
+var fetchMessages = function fetchMessages() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/messages'
+  });
+};
+
+/***/ }),
+
 /***/ "./frontend/util/route_util.jsx":
 /*!**************************************!*\
   !*** ./frontend/util/route_util.jsx ***!
   \**************************************/
-/*! exports provided: AuthRoute */
+/*! exports provided: AuthRoute, ProtectedRoute */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthRoute", function() { return AuthRoute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProtectedRoute", function() { return ProtectedRoute; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
@@ -823,6 +1352,22 @@ var Auth = function Auth(_ref) {
     exact: exact,
     render: function render(props) {
       return !loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/workspaces"
+      });
+    }
+  });
+};
+
+var Protected = function Protected(_ref2) {
+  var loggedIn = _ref2.loggedIn,
+      path = _ref2.path,
+      exact = _ref2.exact,
+      Component = _ref2.component;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: path,
+    exact: exact,
+    render: function render(props) {
+      return loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
         to: "/"
       });
     }
@@ -836,6 +1381,7 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Auth));
+var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Protected));
 
 /***/ }),
 
@@ -875,6 +1421,25 @@ var destroySession = function destroySession() {
   return $.ajax({
     method: 'DELETE',
     url: "api/session"
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/workspace_api_util.js":
+/*!*********************************************!*\
+  !*** ./frontend/util/workspace_api_util.js ***!
+  \*********************************************/
+/*! exports provided: fetchWorkspaces */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchWorkspaces", function() { return fetchWorkspaces; });
+var fetchWorkspaces = function fetchWorkspaces() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/workspaces'
   });
 };
 
@@ -928,6 +1493,622 @@ document.addEventListener('DOMContentLoaded', function () {
     store: store
   }), root);
 });
+
+/***/ }),
+
+/***/ "./node_modules/actioncable/lib/assets/compiled/action_cable.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/actioncable/lib/assets/compiled/action_cable.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;(function() {
+  var context = this;
+
+  (function() {
+    (function() {
+      var slice = [].slice;
+
+      this.ActionCable = {
+        INTERNAL: {
+          "message_types": {
+            "welcome": "welcome",
+            "ping": "ping",
+            "confirmation": "confirm_subscription",
+            "rejection": "reject_subscription"
+          },
+          "default_mount_path": "/cable",
+          "protocols": ["actioncable-v1-json", "actioncable-unsupported"]
+        },
+        WebSocket: window.WebSocket,
+        logger: window.console,
+        createConsumer: function(url) {
+          var ref;
+          if (url == null) {
+            url = (ref = this.getConfig("url")) != null ? ref : this.INTERNAL.default_mount_path;
+          }
+          return new ActionCable.Consumer(this.createWebSocketURL(url));
+        },
+        getConfig: function(name) {
+          var element;
+          element = document.head.querySelector("meta[name='action-cable-" + name + "']");
+          return element != null ? element.getAttribute("content") : void 0;
+        },
+        createWebSocketURL: function(url) {
+          var a;
+          if (url && !/^wss?:/i.test(url)) {
+            a = document.createElement("a");
+            a.href = url;
+            a.href = a.href;
+            a.protocol = a.protocol.replace("http", "ws");
+            return a.href;
+          } else {
+            return url;
+          }
+        },
+        startDebugging: function() {
+          return this.debugging = true;
+        },
+        stopDebugging: function() {
+          return this.debugging = null;
+        },
+        log: function() {
+          var messages, ref;
+          messages = 1 <= arguments.length ? slice.call(arguments, 0) : [];
+          if (this.debugging) {
+            messages.push(Date.now());
+            return (ref = this.logger).log.apply(ref, ["[ActionCable]"].concat(slice.call(messages)));
+          }
+        }
+      };
+
+    }).call(this);
+  }).call(context);
+
+  var ActionCable = context.ActionCable;
+
+  (function() {
+    (function() {
+      var bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+      ActionCable.ConnectionMonitor = (function() {
+        var clamp, now, secondsSince;
+
+        ConnectionMonitor.pollInterval = {
+          min: 3,
+          max: 30
+        };
+
+        ConnectionMonitor.staleThreshold = 6;
+
+        function ConnectionMonitor(connection) {
+          this.connection = connection;
+          this.visibilityDidChange = bind(this.visibilityDidChange, this);
+          this.reconnectAttempts = 0;
+        }
+
+        ConnectionMonitor.prototype.start = function() {
+          if (!this.isRunning()) {
+            this.startedAt = now();
+            delete this.stoppedAt;
+            this.startPolling();
+            document.addEventListener("visibilitychange", this.visibilityDidChange);
+            return ActionCable.log("ConnectionMonitor started. pollInterval = " + (this.getPollInterval()) + " ms");
+          }
+        };
+
+        ConnectionMonitor.prototype.stop = function() {
+          if (this.isRunning()) {
+            this.stoppedAt = now();
+            this.stopPolling();
+            document.removeEventListener("visibilitychange", this.visibilityDidChange);
+            return ActionCable.log("ConnectionMonitor stopped");
+          }
+        };
+
+        ConnectionMonitor.prototype.isRunning = function() {
+          return (this.startedAt != null) && (this.stoppedAt == null);
+        };
+
+        ConnectionMonitor.prototype.recordPing = function() {
+          return this.pingedAt = now();
+        };
+
+        ConnectionMonitor.prototype.recordConnect = function() {
+          this.reconnectAttempts = 0;
+          this.recordPing();
+          delete this.disconnectedAt;
+          return ActionCable.log("ConnectionMonitor recorded connect");
+        };
+
+        ConnectionMonitor.prototype.recordDisconnect = function() {
+          this.disconnectedAt = now();
+          return ActionCable.log("ConnectionMonitor recorded disconnect");
+        };
+
+        ConnectionMonitor.prototype.startPolling = function() {
+          this.stopPolling();
+          return this.poll();
+        };
+
+        ConnectionMonitor.prototype.stopPolling = function() {
+          return clearTimeout(this.pollTimeout);
+        };
+
+        ConnectionMonitor.prototype.poll = function() {
+          return this.pollTimeout = setTimeout((function(_this) {
+            return function() {
+              _this.reconnectIfStale();
+              return _this.poll();
+            };
+          })(this), this.getPollInterval());
+        };
+
+        ConnectionMonitor.prototype.getPollInterval = function() {
+          var interval, max, min, ref;
+          ref = this.constructor.pollInterval, min = ref.min, max = ref.max;
+          interval = 5 * Math.log(this.reconnectAttempts + 1);
+          return Math.round(clamp(interval, min, max) * 1000);
+        };
+
+        ConnectionMonitor.prototype.reconnectIfStale = function() {
+          if (this.connectionIsStale()) {
+            ActionCable.log("ConnectionMonitor detected stale connection. reconnectAttempts = " + this.reconnectAttempts + ", pollInterval = " + (this.getPollInterval()) + " ms, time disconnected = " + (secondsSince(this.disconnectedAt)) + " s, stale threshold = " + this.constructor.staleThreshold + " s");
+            this.reconnectAttempts++;
+            if (this.disconnectedRecently()) {
+              return ActionCable.log("ConnectionMonitor skipping reopening recent disconnect");
+            } else {
+              ActionCable.log("ConnectionMonitor reopening");
+              return this.connection.reopen();
+            }
+          }
+        };
+
+        ConnectionMonitor.prototype.connectionIsStale = function() {
+          var ref;
+          return secondsSince((ref = this.pingedAt) != null ? ref : this.startedAt) > this.constructor.staleThreshold;
+        };
+
+        ConnectionMonitor.prototype.disconnectedRecently = function() {
+          return this.disconnectedAt && secondsSince(this.disconnectedAt) < this.constructor.staleThreshold;
+        };
+
+        ConnectionMonitor.prototype.visibilityDidChange = function() {
+          if (document.visibilityState === "visible") {
+            return setTimeout((function(_this) {
+              return function() {
+                if (_this.connectionIsStale() || !_this.connection.isOpen()) {
+                  ActionCable.log("ConnectionMonitor reopening stale connection on visibilitychange. visbilityState = " + document.visibilityState);
+                  return _this.connection.reopen();
+                }
+              };
+            })(this), 200);
+          }
+        };
+
+        now = function() {
+          return new Date().getTime();
+        };
+
+        secondsSince = function(time) {
+          return (now() - time) / 1000;
+        };
+
+        clamp = function(number, min, max) {
+          return Math.max(min, Math.min(max, number));
+        };
+
+        return ConnectionMonitor;
+
+      })();
+
+    }).call(this);
+    (function() {
+      var i, message_types, protocols, ref, supportedProtocols, unsupportedProtocol,
+        slice = [].slice,
+        bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+        indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+
+      ref = ActionCable.INTERNAL, message_types = ref.message_types, protocols = ref.protocols;
+
+      supportedProtocols = 2 <= protocols.length ? slice.call(protocols, 0, i = protocols.length - 1) : (i = 0, []), unsupportedProtocol = protocols[i++];
+
+      ActionCable.Connection = (function() {
+        Connection.reopenDelay = 500;
+
+        function Connection(consumer) {
+          this.consumer = consumer;
+          this.open = bind(this.open, this);
+          this.subscriptions = this.consumer.subscriptions;
+          this.monitor = new ActionCable.ConnectionMonitor(this);
+          this.disconnected = true;
+        }
+
+        Connection.prototype.send = function(data) {
+          if (this.isOpen()) {
+            this.webSocket.send(JSON.stringify(data));
+            return true;
+          } else {
+            return false;
+          }
+        };
+
+        Connection.prototype.open = function() {
+          if (this.isActive()) {
+            ActionCable.log("Attempted to open WebSocket, but existing socket is " + (this.getState()));
+            return false;
+          } else {
+            ActionCable.log("Opening WebSocket, current state is " + (this.getState()) + ", subprotocols: " + protocols);
+            if (this.webSocket != null) {
+              this.uninstallEventHandlers();
+            }
+            this.webSocket = new ActionCable.WebSocket(this.consumer.url, protocols);
+            this.installEventHandlers();
+            this.monitor.start();
+            return true;
+          }
+        };
+
+        Connection.prototype.close = function(arg) {
+          var allowReconnect, ref1;
+          allowReconnect = (arg != null ? arg : {
+            allowReconnect: true
+          }).allowReconnect;
+          if (!allowReconnect) {
+            this.monitor.stop();
+          }
+          if (this.isActive()) {
+            return (ref1 = this.webSocket) != null ? ref1.close() : void 0;
+          }
+        };
+
+        Connection.prototype.reopen = function() {
+          var error;
+          ActionCable.log("Reopening WebSocket, current state is " + (this.getState()));
+          if (this.isActive()) {
+            try {
+              return this.close();
+            } catch (error1) {
+              error = error1;
+              return ActionCable.log("Failed to reopen WebSocket", error);
+            } finally {
+              ActionCable.log("Reopening WebSocket in " + this.constructor.reopenDelay + "ms");
+              setTimeout(this.open, this.constructor.reopenDelay);
+            }
+          } else {
+            return this.open();
+          }
+        };
+
+        Connection.prototype.getProtocol = function() {
+          var ref1;
+          return (ref1 = this.webSocket) != null ? ref1.protocol : void 0;
+        };
+
+        Connection.prototype.isOpen = function() {
+          return this.isState("open");
+        };
+
+        Connection.prototype.isActive = function() {
+          return this.isState("open", "connecting");
+        };
+
+        Connection.prototype.isProtocolSupported = function() {
+          var ref1;
+          return ref1 = this.getProtocol(), indexOf.call(supportedProtocols, ref1) >= 0;
+        };
+
+        Connection.prototype.isState = function() {
+          var ref1, states;
+          states = 1 <= arguments.length ? slice.call(arguments, 0) : [];
+          return ref1 = this.getState(), indexOf.call(states, ref1) >= 0;
+        };
+
+        Connection.prototype.getState = function() {
+          var ref1, state, value;
+          for (state in WebSocket) {
+            value = WebSocket[state];
+            if (value === ((ref1 = this.webSocket) != null ? ref1.readyState : void 0)) {
+              return state.toLowerCase();
+            }
+          }
+          return null;
+        };
+
+        Connection.prototype.installEventHandlers = function() {
+          var eventName, handler;
+          for (eventName in this.events) {
+            handler = this.events[eventName].bind(this);
+            this.webSocket["on" + eventName] = handler;
+          }
+        };
+
+        Connection.prototype.uninstallEventHandlers = function() {
+          var eventName;
+          for (eventName in this.events) {
+            this.webSocket["on" + eventName] = function() {};
+          }
+        };
+
+        Connection.prototype.events = {
+          message: function(event) {
+            var identifier, message, ref1, type;
+            if (!this.isProtocolSupported()) {
+              return;
+            }
+            ref1 = JSON.parse(event.data), identifier = ref1.identifier, message = ref1.message, type = ref1.type;
+            switch (type) {
+              case message_types.welcome:
+                this.monitor.recordConnect();
+                return this.subscriptions.reload();
+              case message_types.ping:
+                return this.monitor.recordPing();
+              case message_types.confirmation:
+                return this.subscriptions.notify(identifier, "connected");
+              case message_types.rejection:
+                return this.subscriptions.reject(identifier);
+              default:
+                return this.subscriptions.notify(identifier, "received", message);
+            }
+          },
+          open: function() {
+            ActionCable.log("WebSocket onopen event, using '" + (this.getProtocol()) + "' subprotocol");
+            this.disconnected = false;
+            if (!this.isProtocolSupported()) {
+              ActionCable.log("Protocol is unsupported. Stopping monitor and disconnecting.");
+              return this.close({
+                allowReconnect: false
+              });
+            }
+          },
+          close: function(event) {
+            ActionCable.log("WebSocket onclose event");
+            if (this.disconnected) {
+              return;
+            }
+            this.disconnected = true;
+            this.monitor.recordDisconnect();
+            return this.subscriptions.notifyAll("disconnected", {
+              willAttemptReconnect: this.monitor.isRunning()
+            });
+          },
+          error: function() {
+            return ActionCable.log("WebSocket onerror event");
+          }
+        };
+
+        return Connection;
+
+      })();
+
+    }).call(this);
+    (function() {
+      var slice = [].slice;
+
+      ActionCable.Subscriptions = (function() {
+        function Subscriptions(consumer) {
+          this.consumer = consumer;
+          this.subscriptions = [];
+        }
+
+        Subscriptions.prototype.create = function(channelName, mixin) {
+          var channel, params, subscription;
+          channel = channelName;
+          params = typeof channel === "object" ? channel : {
+            channel: channel
+          };
+          subscription = new ActionCable.Subscription(this.consumer, params, mixin);
+          return this.add(subscription);
+        };
+
+        Subscriptions.prototype.add = function(subscription) {
+          this.subscriptions.push(subscription);
+          this.consumer.ensureActiveConnection();
+          this.notify(subscription, "initialized");
+          this.sendCommand(subscription, "subscribe");
+          return subscription;
+        };
+
+        Subscriptions.prototype.remove = function(subscription) {
+          this.forget(subscription);
+          if (!this.findAll(subscription.identifier).length) {
+            this.sendCommand(subscription, "unsubscribe");
+          }
+          return subscription;
+        };
+
+        Subscriptions.prototype.reject = function(identifier) {
+          var i, len, ref, results, subscription;
+          ref = this.findAll(identifier);
+          results = [];
+          for (i = 0, len = ref.length; i < len; i++) {
+            subscription = ref[i];
+            this.forget(subscription);
+            this.notify(subscription, "rejected");
+            results.push(subscription);
+          }
+          return results;
+        };
+
+        Subscriptions.prototype.forget = function(subscription) {
+          var s;
+          this.subscriptions = (function() {
+            var i, len, ref, results;
+            ref = this.subscriptions;
+            results = [];
+            for (i = 0, len = ref.length; i < len; i++) {
+              s = ref[i];
+              if (s !== subscription) {
+                results.push(s);
+              }
+            }
+            return results;
+          }).call(this);
+          return subscription;
+        };
+
+        Subscriptions.prototype.findAll = function(identifier) {
+          var i, len, ref, results, s;
+          ref = this.subscriptions;
+          results = [];
+          for (i = 0, len = ref.length; i < len; i++) {
+            s = ref[i];
+            if (s.identifier === identifier) {
+              results.push(s);
+            }
+          }
+          return results;
+        };
+
+        Subscriptions.prototype.reload = function() {
+          var i, len, ref, results, subscription;
+          ref = this.subscriptions;
+          results = [];
+          for (i = 0, len = ref.length; i < len; i++) {
+            subscription = ref[i];
+            results.push(this.sendCommand(subscription, "subscribe"));
+          }
+          return results;
+        };
+
+        Subscriptions.prototype.notifyAll = function() {
+          var args, callbackName, i, len, ref, results, subscription;
+          callbackName = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+          ref = this.subscriptions;
+          results = [];
+          for (i = 0, len = ref.length; i < len; i++) {
+            subscription = ref[i];
+            results.push(this.notify.apply(this, [subscription, callbackName].concat(slice.call(args))));
+          }
+          return results;
+        };
+
+        Subscriptions.prototype.notify = function() {
+          var args, callbackName, i, len, results, subscription, subscriptions;
+          subscription = arguments[0], callbackName = arguments[1], args = 3 <= arguments.length ? slice.call(arguments, 2) : [];
+          if (typeof subscription === "string") {
+            subscriptions = this.findAll(subscription);
+          } else {
+            subscriptions = [subscription];
+          }
+          results = [];
+          for (i = 0, len = subscriptions.length; i < len; i++) {
+            subscription = subscriptions[i];
+            results.push(typeof subscription[callbackName] === "function" ? subscription[callbackName].apply(subscription, args) : void 0);
+          }
+          return results;
+        };
+
+        Subscriptions.prototype.sendCommand = function(subscription, command) {
+          var identifier;
+          identifier = subscription.identifier;
+          return this.consumer.send({
+            command: command,
+            identifier: identifier
+          });
+        };
+
+        return Subscriptions;
+
+      })();
+
+    }).call(this);
+    (function() {
+      ActionCable.Subscription = (function() {
+        var extend;
+
+        function Subscription(consumer, params, mixin) {
+          this.consumer = consumer;
+          if (params == null) {
+            params = {};
+          }
+          this.identifier = JSON.stringify(params);
+          extend(this, mixin);
+        }
+
+        Subscription.prototype.perform = function(action, data) {
+          if (data == null) {
+            data = {};
+          }
+          data.action = action;
+          return this.send(data);
+        };
+
+        Subscription.prototype.send = function(data) {
+          return this.consumer.send({
+            command: "message",
+            identifier: this.identifier,
+            data: JSON.stringify(data)
+          });
+        };
+
+        Subscription.prototype.unsubscribe = function() {
+          return this.consumer.subscriptions.remove(this);
+        };
+
+        extend = function(object, properties) {
+          var key, value;
+          if (properties != null) {
+            for (key in properties) {
+              value = properties[key];
+              object[key] = value;
+            }
+          }
+          return object;
+        };
+
+        return Subscription;
+
+      })();
+
+    }).call(this);
+    (function() {
+      ActionCable.Consumer = (function() {
+        function Consumer(url) {
+          this.url = url;
+          this.subscriptions = new ActionCable.Subscriptions(this);
+          this.connection = new ActionCable.Connection(this);
+        }
+
+        Consumer.prototype.send = function(data) {
+          return this.connection.send(data);
+        };
+
+        Consumer.prototype.connect = function() {
+          return this.connection.open();
+        };
+
+        Consumer.prototype.disconnect = function() {
+          return this.connection.close({
+            allowReconnect: false
+          });
+        };
+
+        Consumer.prototype.ensureActiveConnection = function() {
+          if (!this.connection.isActive()) {
+            return this.connection.open();
+          }
+        };
+
+        return Consumer;
+
+      })();
+
+    }).call(this);
+  }).call(this);
+
+  if (typeof module === "object" && module.exports) {
+    module.exports = ActionCable;
+  } else if (true) {
+    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (ActionCable),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  }
+}).call(this);
+
 
 /***/ }),
 
@@ -2996,6 +4177,38 @@ module.exports = arrayLikeKeys;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_arrayMap.js":
+/*!******************************************!*\
+  !*** ./node_modules/lodash/_arrayMap.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * A specialized version of `_.map` for arrays without support for iteratee
+ * shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns the new mapped array.
+ */
+function arrayMap(array, iteratee) {
+  var index = -1,
+      length = array == null ? 0 : array.length,
+      result = Array(length);
+
+  while (++index < length) {
+    result[index] = iteratee(array[index], index, array);
+  }
+  return result;
+}
+
+module.exports = arrayMap;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/_assignMergeValue.js":
 /*!**************************************************!*\
   !*** ./node_modules/lodash/_assignMergeValue.js ***!
@@ -3399,6 +4612,47 @@ module.exports = baseIsTypedArray;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_baseKeys.js":
+/*!******************************************!*\
+  !*** ./node_modules/lodash/_baseKeys.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isPrototype = __webpack_require__(/*! ./_isPrototype */ "./node_modules/lodash/_isPrototype.js"),
+    nativeKeys = __webpack_require__(/*! ./_nativeKeys */ "./node_modules/lodash/_nativeKeys.js");
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ */
+function baseKeys(object) {
+  if (!isPrototype(object)) {
+    return nativeKeys(object);
+  }
+  var result = [];
+  for (var key in Object(object)) {
+    if (hasOwnProperty.call(object, key) && key != 'constructor') {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+module.exports = baseKeys;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/_baseKeysIn.js":
 /*!********************************************!*\
   !*** ./node_modules/lodash/_baseKeysIn.js ***!
@@ -3714,6 +4968,36 @@ function baseUnary(func) {
 }
 
 module.exports = baseUnary;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseValues.js":
+/*!********************************************!*\
+  !*** ./node_modules/lodash/_baseValues.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayMap = __webpack_require__(/*! ./_arrayMap */ "./node_modules/lodash/_arrayMap.js");
+
+/**
+ * The base implementation of `_.values` and `_.valuesIn` which creates an
+ * array of `object` property values corresponding to the property names
+ * of `props`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {Array} props The property names to get values for.
+ * @returns {Object} Returns the array of property values.
+ */
+function baseValues(object, props) {
+  return arrayMap(props, function(key) {
+    return object[key];
+  });
+}
+
+module.exports = baseValues;
 
 
 /***/ }),
@@ -4879,6 +6163,23 @@ module.exports = nativeCreate;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_nativeKeys.js":
+/*!********************************************!*\
+  !*** ./node_modules/lodash/_nativeKeys.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var overArg = __webpack_require__(/*! ./_overArg */ "./node_modules/lodash/_overArg.js");
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeKeys = overArg(Object.keys, Object);
+
+module.exports = nativeKeys;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/_nativeKeysIn.js":
 /*!**********************************************!*\
   !*** ./node_modules/lodash/_nativeKeysIn.js ***!
@@ -5992,6 +7293,54 @@ module.exports = isTypedArray;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/keys.js":
+/*!*************************************!*\
+  !*** ./node_modules/lodash/keys.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayLikeKeys = __webpack_require__(/*! ./_arrayLikeKeys */ "./node_modules/lodash/_arrayLikeKeys.js"),
+    baseKeys = __webpack_require__(/*! ./_baseKeys */ "./node_modules/lodash/_baseKeys.js"),
+    isArrayLike = __webpack_require__(/*! ./isArrayLike */ "./node_modules/lodash/isArrayLike.js");
+
+/**
+ * Creates an array of the own enumerable property names of `object`.
+ *
+ * **Note:** Non-object values are coerced to objects. See the
+ * [ES spec](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
+ * for more details.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Object
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ *   this.b = 2;
+ * }
+ *
+ * Foo.prototype.c = 3;
+ *
+ * _.keys(new Foo);
+ * // => ['a', 'b'] (iteration order is not guaranteed)
+ *
+ * _.keys('hi');
+ * // => ['0', '1']
+ */
+function keys(object) {
+  return isArrayLike(object) ? arrayLikeKeys(object) : baseKeys(object);
+}
+
+module.exports = keys;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/keysIn.js":
 /*!***************************************!*\
   !*** ./node_modules/lodash/keysIn.js ***!
@@ -6153,6 +7502,51 @@ function toPlainObject(value) {
 }
 
 module.exports = toPlainObject;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/values.js":
+/*!***************************************!*\
+  !*** ./node_modules/lodash/values.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseValues = __webpack_require__(/*! ./_baseValues */ "./node_modules/lodash/_baseValues.js"),
+    keys = __webpack_require__(/*! ./keys */ "./node_modules/lodash/keys.js");
+
+/**
+ * Creates an array of the own enumerable string keyed property values of `object`.
+ *
+ * **Note:** Non-object values are coerced to objects.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Object
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property values.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ *   this.b = 2;
+ * }
+ *
+ * Foo.prototype.c = 3;
+ *
+ * _.values(new Foo);
+ * // => [1, 2] (iteration order is not guaranteed)
+ *
+ * _.values('hi');
+ * // => ['h', 'i']
+ */
+function values(object) {
+  return object == null ? [] : baseValues(object, keys(object));
+}
+
+module.exports = values;
 
 
 /***/ }),

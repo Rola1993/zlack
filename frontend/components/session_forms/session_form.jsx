@@ -1,5 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import {
+  Route,
+  Redirect,
+  Switch,
+  Link,
+  HashRouter
+} from 'react-router-dom';
+import GreetingContainer from '../greetings/greeting_container';
+
 
 class SessionForm extends React.Component {
 
@@ -52,6 +61,15 @@ class SessionForm extends React.Component {
 
    render() {
     return (
+      <div>
+        <header>
+           <div className='header-left'>
+             <Link to="/"><div className='logo'></div></Link>
+           </div>
+           <div className='header-right'>
+             <GreetingContainer/>
+          </div>
+        </header>
       <div className="session">
           {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
@@ -74,6 +92,7 @@ class SessionForm extends React.Component {
           <input type="submit" onClick={this.demoSubmit} value='Guest Login'/>
         </form>
       </div>
+    </div>
     );
   }
 }
