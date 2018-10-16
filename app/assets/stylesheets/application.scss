@@ -50,6 +50,50 @@ div {
     height:auto;
     background: #4d394b;
     box-sizing: content-box;
+
+    button {
+      margin-left: 0px;
+      border: 0;
+      padding-left: 0px;
+      color: #CAC4C9;
+      font-size: 14px;
+      width:90px;
+    }
+
+    h3 {
+      margin-left: 15px;
+      margin-bottom: 2px;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .username {
+      margin-left: 15px;
+      font-size: 14px;
+      font-weight: 100;
+      color: #CAC4C9;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .channel-list{
+      margin-top: 80px;
+      color: #CAC4C9;
+      font-family: 'Nunito', sans-serif;
+      font-weight:100;
+
+      h5 {
+        margin: 0px;
+        margin-left: 14px;
+        padding: 0px;
+        font-size: 16px;
+        font-weight: 100;
+      }
+      li {
+        width: 80px;
+        margin-left: 20px;
+        text-align: left;
+      }
+    }
   }
 
   .chatbox{

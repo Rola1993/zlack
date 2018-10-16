@@ -6,6 +6,7 @@ import {
   Link
 } from 'react-router-dom';
 import Cable from 'actioncable';
+import ChannelListContainer from '../channels/channel_list';
 import moment from 'moment';
 
 class Chatroom extends React.Component {
@@ -20,7 +21,6 @@ class Chatroom extends React.Component {
 
   componentDidMount() {
     this.props.requestUsers();
-    this.props.requestChannels();
     this.props.requestMessages();
   }
 
@@ -95,7 +95,7 @@ class Chatroom extends React.Component {
   render() {
     const users = this.props.users;
     const messages = this.props.messages;
-    const channels = this.props.channels;
+    const currentUserId = this.props.currentUserId;
     window.messages = messages;
     window.users = users;
 
@@ -103,13 +103,9 @@ class Chatroom extends React.Component {
       <div className='chatroom'>
         <div className='sidebar'>
           <h3>App Academy</h3>
-          <ul>
-            {channels.map((channel, idx) => (
-              <li key={`channel-${idx}`}>
-                {channel.name}
-              </li>
-            ))}
-          </ul>
+          <div className='username'> {users[currentUserId].username}</div>
+          <button onClick={this.props.logout}>Log Out</button>
+            <ChannelListContainer/>
         </div>
 
         <div className='chatbox'>
