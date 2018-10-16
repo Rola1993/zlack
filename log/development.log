@@ -31329,3 +31329,202 @@ Completed 200 OK in 26ms (Views: 3.1ms | ActiveRecord: 21.1ms)
 
 ChatChannel is transmitting the subscription confirmation
 ChatChannel is streaming from chat_channel
+Started GET "/" for 127.0.0.1 at 2018-10-15 17:54:57 -0700
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/laluo/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RxevLzet1j6Chy0z7QNUnQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 2318ms (Views: 2300.8ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-15 17:55:00 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RxevLzet1j6Chy0z7QNUnQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 64ms (Views: 59.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 17:55:00 -0700
+Started GET "/api/channels" for 127.0.0.1 at 2018-10-15 17:55:00 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 17:55:00 -0700
+Started GET "/api/messages" for 127.0.0.1 at 2018-10-15 17:55:00 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/api/users" for 127.0.0.1 at 2018-10-15 17:55:00 -0700
+Processing by Api::UsersController#index as JSON
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+  [1m[36mUser Load (28.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/users_controller.rb:4
+Completed 200 OK in 32ms (Views: 2.3ms | ActiveRecord: 28.8ms)
+
+
+Processing by Api::ChannelsController#index as JSON
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RxevLzet1j6Chy0z7QNUnQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+Processing by Api::MessagesController#index as JSON
+  [1m[36mChannel Load (50.1ms)[0m  [1m[34mSELECT "channels".* FROM "channels"[0m
+  ↳ app/controllers/api/channels_controller.rb:5
+  [1m[36mUser Load (60.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RxevLzet1j6Chy0z7QNUnQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/controllers/api/messages_controller.rb:5
+Completed 200 OK in 100ms (Views: 9.3ms | ActiveRecord: 74.7ms)
+
+
+Completed 200 OK in 93ms (Views: 10.2ms | ActiveRecord: 78.6ms)
+
+
+ChatChannel#create({"body"=>"test", "user_id"=>1})
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chat_channel.rb:9
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chat_channel.rb:9
+  [1m[36mMessage Create (2.0ms)[0m  [1m[32mINSERT INTO "messages" ("body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "test"], ["created_at", "2018-10-16 00:55:06.088455"], ["updated_at", "2018-10-16 00:55:06.088455"], ["user_id", 1]]
+  ↳ app/channels/chat_channel.rb:9
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chat_channel.rb:9
+[ActiveJob] Enqueued MessageCreationEventBroadcastJob (Job ID: 49f867eb-34e5-47c6-986d-4642ca8fb952) to Async(default) with arguments: #<GlobalID:0x00007fe389bdf050 @uri=#<URI::GID gid://zlack/Message/20>>
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ /Users/laluo/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageCreationEventBroadcastJob] [49f867eb-34e5-47c6-986d-4642ca8fb952] Performing MessageCreationEventBroadcastJob (Job ID: 49f867eb-34e5-47c6-986d-4642ca8fb952) from Async(default) with arguments: #<GlobalID:0x00007fe38a0bbce0 @uri=#<URI::GID gid://zlack/Message/20>>
+[ActiveJob] [MessageCreationEventBroadcastJob] [49f867eb-34e5-47c6-986d-4642ca8fb952] [ActionCable] Broadcasting to chat_channel: {:id=>20, :created_at=>"00:55", :body=>"test", :user_id=>1}
+[ActiveJob] [MessageCreationEventBroadcastJob] [49f867eb-34e5-47c6-986d-4642ca8fb952] Performed MessageCreationEventBroadcastJob (Job ID: 49f867eb-34e5-47c6-986d-4642ca8fb952) from Async(default) in 4.01ms
+ChatChannel transmitting {"id"=>20, "created_at"=>"00:55", "body"=>"test", "user_id"=>1} (via streamed from chat_channel)
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 17:56:55 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 17:56:55 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 18:04:57 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 18:04:58 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 18:04:58 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 18:18:31 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 18:18:32 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 18:18:32 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 19:44:03 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 19:44:04 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 19:44:04 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 20:45:25 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 20:45:26 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 20:45:26 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 22:33:45 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 22:33:46 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 22:33:46 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 22:44:22 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 22:44:23 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 22:44:23 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 01:35:54 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-16 01:35:54 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 01:35:55 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 03:23:59 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-16 03:24:00 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 03:24:00 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 05:12:04 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-16 05:12:05 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 05:12:05 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 06:48:07 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-16 06:48:08 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 06:48:09 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 06:49:05 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-16 06:49:06 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 06:49:06 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 06:56:04 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-16 06:56:05 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 06:56:06 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 07:02:47 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-16 07:02:48 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 07:02:48 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 07:07:18 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-16 07:07:19 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 07:07:19 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 08:17:09 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-16 08:17:10 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 08:17:10 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 08:18:22 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-16 08:18:23 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 08:18:23 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 08:19:57 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-16 08:19:58 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 08:19:58 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 08:31:33 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-16 08:31:34 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-16 08:31:34 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel

@@ -6,7 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:f2e35808d4600f1b6a9e7abfc3b8d10f@spinyfin.redistogo.com:10981/
   channel_prefix: zlack_production
-
-  # url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
