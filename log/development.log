@@ -31245,3 +31245,87 @@ ChatChannel#create({"body"=>"test", "user_id"=>2})
 [ActiveJob] [MessageCreationEventBroadcastJob] [38786a42-d3cb-4ed3-b7cd-97f8ed52cbb9] Performed MessageCreationEventBroadcastJob (Job ID: 38786a42-d3cb-4ed3-b7cd-97f8ed52cbb9) from Async(default) in 0.52ms
 ChatChannel transmitting {"id"=>19, "created_at"=>"00:29", "body"=>"test", "user_id"=>2} (via streamed from chat_channel)
 ChatChannel transmitting {"id"=>19, "created_at"=>"00:29", "body"=>"test", "user_id"=>2} (via streamed from chat_channel)
+Started GET "/" for 127.0.0.1 at 2018-10-15 17:37:24 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RxevLzet1j6Chy0z7QNUnQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 48ms (Views: 44.2ms | ActiveRecord: 1.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 17:37:24 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 17:37:25 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 17:37:25 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/api/channels" for 127.0.0.1 at 2018-10-15 17:37:25 -0700
+Processing by Api::ChannelsController#index as JSON
+Started GET "/api/users" for 127.0.0.1 at 2018-10-15 17:37:25 -0700
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RxevLzet1j6Chy0z7QNUnQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mChannel Load (3.3ms)[0m  [1m[34mSELECT "channels".* FROM "channels"[0m
+  ↳ app/controllers/api/channels_controller.rb:5
+Completed 200 OK in 11ms (Views: 3.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/api/messages" for 127.0.0.1 at 2018-10-15 17:37:25 -0700
+Processing by Api::MessagesController#index as JSON
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RxevLzet1j6Chy0z7QNUnQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/controllers/api/messages_controller.rb:5
+Completed 200 OK in 9ms (Views: 2.7ms | ActiveRecord: 2.4ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (17.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/users_controller.rb:4
+Completed 200 OK in 22ms (Views: 3.2ms | ActiveRecord: 17.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-15 17:37:33 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RxevLzet1j6Chy0z7QNUnQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 45ms (Views: 35.5ms | ActiveRecord: 5.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 17:37:33 -0700
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-10-15 17:37:33 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-15 17:37:33 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/api/channels" for 127.0.0.1 at 2018-10-15 17:37:33 -0700
+Processing by Api::ChannelsController#index as JSON
+Started GET "/api/users" for 127.0.0.1 at 2018-10-15 17:37:33 -0700
+Started GET "/api/messages" for 127.0.0.1 at 2018-10-15 17:37:33 -0700
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RxevLzet1j6Chy0z7QNUnQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mChannel Load (1.4ms)[0m  [1m[34mSELECT "channels".* FROM "channels"[0m
+  ↳ app/controllers/api/users_controller.rb:4
+  ↳ app/controllers/api/channels_controller.rb:5
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 2.4ms)
+
+
+Processing by Api::MessagesController#index as JSON
+Completed 200 OK in 10ms (Views: 2.8ms | ActiveRecord: 5.6ms)
+
+
+  [1m[36mUser Load (20.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RxevLzet1j6Chy0z7QNUnQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/controllers/api/messages_controller.rb:5
+Completed 200 OK in 26ms (Views: 3.1ms | ActiveRecord: 21.1ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
