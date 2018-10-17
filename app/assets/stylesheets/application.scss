@@ -150,29 +150,51 @@ div {
 
   .chatbox{
 
-
     .chat-logs {
       position: relative;
       overflow-y: scroll;
 
-      li {
-        width: 800px;
-        margin-left: 290px;
-        text-align: left;
+      ul {
+        li {
+          margin-top: 7px;
+          width: 800px;
+          margin-left: 290px;
+          text-align: left;
 
-        .message-conent {
+          .message-content {
+            position: relative;
 
+            .chat-user{
+              font-size: 16px;
+              font-weight: 900;
+              font-family: 'Nunito', sans-serif;
+            }
+            .chat-message{
+              font-size: 16px;
+              color: #2C2D30;
+              font-family: 'Nunito', sans-serif;
+              font-weight: normal;
+            }
+            .chat-created-at{
+              color: #717274;
+              font-size: 12px;
+              font-family: 'Nunito', sans-serif;
+              position: absolute;
+              top: 4px;
+              left: 50px;
+            }
+
+           }
+
+          .message-sender {
+            position: fixed;
+            left: 240px;
+            img {
+              border-radius: 4px;
+            }
+          }
         }
       }
-      .message-sender {
-        position: fixed;
-        left: 245px;
-        img {
-          border-radius: 4px;
-        }
-      }
-
-
     }
 
 
@@ -285,7 +307,7 @@ button{
   li {
     display: block;
     margin-top: 5px;
-    margin-left: 285px;
+    margin-left: 420px;
     font-family: 'Yantramanav', sans-serif;
     background-color: #fff;
     width: 500px;

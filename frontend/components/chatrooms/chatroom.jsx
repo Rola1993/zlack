@@ -17,20 +17,29 @@ class Chatroom extends React.Component {
       currentChatMessage: '',
       chatLogs: []
     };
+
   }
 
   componentDidMount() {
+    this.props.requestChannels();
     this.props.requestUsers();
     this.props.requestMessages();
   }
 
   componentWillMount() {
     this.createSocket();
+    this.props.requestChannels();
+    this.props.requestUsers();
+    this.props.requestMessages();
+
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.channelId !== nextProps.match.params.channelId) {
       const newChannelId = nextProps.match.params.channelId;
+      this.props.requestChannels();
+      this.props.requestUsers();
+      this.props.requestMessages();
     }
   }
 
@@ -108,8 +117,12 @@ class Chatroom extends React.Component {
     const currentUserId = this.props.currentUserId;
     const selectedChannelId = this.props.selectedChannelId;
     const channels = this.props.channels;
-    let selectedChannel = channels.filter(c => c.id === selectedChannelId)[0];
+    let selectedChannel = channels.find(c => c.id === selectedChannelId);
     let cur_messages = messages.filter(m => m.chatroom_id === selectedChannelId);
+
+    if (!selectedChannel) {
+      return <div />;
+    }
 
     return(
       <div className='chatroom'>
@@ -120,13 +133,18 @@ class Chatroom extends React.Component {
             <ChannelListContainer/>
         </div>
         <div className='chatbox-nav'>
-          <div className='nav-title'>#general</div>
+          <div className='nav-title'>#{selectedChannel.name} </div>
         </div>
+
 
         <div className='chatbox'>
               <div className='chat-logs'>
                 <ul>
                   {cur_messages.map((el, idx) => {
+                    const date = new Date(el.created_at.toString());
+                    const create_time = date.toLocaleString('en-US',
+                     { hour: 'numeric', minute: 'numeric', hour12: true });
+                     
                     return (
                     <li key={`el-${idx}`}>
                       <div className="message-sender">
@@ -136,7 +154,7 @@ class Chatroom extends React.Component {
                       <div className="message-content">
                         <div className='chat-user'>{ users[el.user_id].username }</div>
                         <div className='chat-message'>{ el.body }</div>
-                        <div className='chat-created-at'>{ el.created_at }</div>
+                        <div className='chat-created-at'>{ create_time }</div>
                       </div>
                     </li>
                   )}

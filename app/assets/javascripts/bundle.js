@@ -444,9 +444,7 @@ function (_React$Component) {
 
   _createClass(ChannelsList, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.requestChannels();
-    }
+    value: function componentDidMount() {}
   }, {
     key: "render",
     value: function render() {
@@ -476,11 +474,7 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    requestChannels: function requestChannels() {
-      return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_3__["fetchChannels"])());
-    }
-  };
+  return {};
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(ChannelsList));
@@ -641,6 +635,7 @@ function (_React$Component) {
   _createClass(Chatroom, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.props.requestChannels();
       this.props.requestUsers();
       this.props.requestMessages();
     }
@@ -648,12 +643,18 @@ function (_React$Component) {
     key: "componentWillMount",
     value: function componentWillMount() {
       this.createSocket();
+      this.props.requestChannels();
+      this.props.requestUsers();
+      this.props.requestMessages();
     }
   }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
       if (this.props.match.params.channelId !== nextProps.match.params.channelId) {
         var newChannelId = nextProps.match.params.channelId;
+        this.props.requestChannels();
+        this.props.requestUsers();
+        this.props.requestMessages();
       }
     }
   }, {
@@ -745,12 +746,17 @@ function (_React$Component) {
       var currentUserId = this.props.currentUserId;
       var selectedChannelId = this.props.selectedChannelId;
       var channels = this.props.channels;
-      var selectedChannel = channels.filter(function (c) {
+      var selectedChannel = channels.find(function (c) {
         return c.id === selectedChannelId;
-      })[0];
+      });
       var cur_messages = messages.filter(function (m) {
         return m.chatroom_id === selectedChannelId;
       });
+
+      if (!selectedChannel) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -763,11 +769,17 @@ function (_React$Component) {
         className: "chatbox-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-title"
-      }, "#general")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "#", selectedChannel.name, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatbox"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-logs"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, cur_messages.map(function (el, idx) {
+        var date = new Date(el.created_at.toString());
+        var create_time = date.toLocaleString('en-US', {
+          hour: 'numeric',
+          minute: 'numeric',
+          hour12: true
+        });
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: "el-".concat(idx)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -784,7 +796,7 @@ function (_React$Component) {
           className: "chat-message"
         }, el.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "chat-created-at"
-        }, el.created_at)));
+        }, create_time)));
       }), this.renderChatLog())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onKeyPress: function onKeyPress(e) {
           return _this3.handleChatInputKeyPress(e);
@@ -837,8 +849,8 @@ var mapStateToProps = function mapStateToProps(_ref, ownProps) {
   return {
     messages: entities.messages,
     currentUserId: session.id,
-    selectedChannelId: parseInt(ownProps.match.params.channelId),
     users: entities.users,
+    selectedChannelId: parseInt(ownProps.match.params.channelId),
     channels: entities.channels
   };
 };

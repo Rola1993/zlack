@@ -18,7 +18,6 @@ class ChannelsList extends React.Component {
 
 
   componentDidMount() {
-    this.props.requestChannels();
   }
 
   render() {
@@ -45,7 +44,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestChannels: () => dispatch(fetchChannels())
 });
 
 export default connect(

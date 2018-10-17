@@ -10,8 +10,8 @@ import { } from '../../reducers/selectors';
 const mapStateToProps = ({entities, session}, ownProps) => ({
   messages: entities.messages,
   currentUserId: session.id,
-  selectedChannelId: parseInt(ownProps.match.params.channelId),
   users: entities.users,
+  selectedChannelId: parseInt(ownProps.match.params.channelId),
   channels: entities.channels
 });
 
