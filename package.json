@@ -8,6 +8,7 @@
     "actioncable": "^5.2.1",
     "actioncable-js": "^5.0.0-rc2",
     "babel-loader": "^8.0.4",
+    "font-awesome": "^4.7.0",
     "moment": "^2.22.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

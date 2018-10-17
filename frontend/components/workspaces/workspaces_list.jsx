@@ -37,9 +37,9 @@ class WorkspacesList extends React.Component {
             <br></br>
             <br></br>
               <p>
-                {this.props.workspaces[0].name}
+                App Academy
               </p>
-              <Link to="/chatroom">
+              <Link to="/channels/1">
                 <input type="submit" value="Continue ->" />
               </Link>
           </form>

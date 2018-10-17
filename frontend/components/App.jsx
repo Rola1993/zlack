@@ -40,12 +40,11 @@ const homeContainer = () => {
 
 const App = () => (
   <div>
-
       <Switch>
         <AuthRoute exect path="/login" component={LoginFormContainer} />
         <AuthRoute exect path="/signup" component={SignupFormContainer} />
         <ProtectedRoute exact path="/workspaces" component={WorkspacesListContainer} />
-        <ProtectedRoute exact path="/chatroom" component={ChatroomContainer} />
+        <ProtectedRoute exact path="/channels/:channelId" component={ChatroomContainer} />
         <Route exact path="/" component={homeContainer} />
         <Route path='*' render={() => (<Redirect to="/" />)} />
       </Switch>

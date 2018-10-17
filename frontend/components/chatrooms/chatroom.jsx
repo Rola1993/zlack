@@ -28,6 +28,12 @@ class Chatroom extends React.Component {
     this.createSocket();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.channelId !== nextProps.match.params.channelId) {
+      const newChannelId = nextProps.match.params.channelId;
+    }
+  }
+
   updateCurrentChatMessage(event) {
     this.setState({
       currentChatMessage: event.target.value
@@ -50,10 +56,11 @@ class Chatroom extends React.Component {
         chatLogs.push(data);
         this.setState({ chatLogs: chatLogs });
       },
-      create: function(chatContent, userId) {
+      create: function(chatContent, userId, chatroomId) {
         this.perform('create', {
           body: chatContent,
-          user_id: userId
+          user_id: userId,
+          chatroom_id: chatroomId
         });
       }
     });
@@ -80,7 +87,10 @@ class Chatroom extends React.Component {
 
   handleSendEvent(event) {
     event.preventDefault();
-    this.chats.create(this.state.currentChatMessage, this.props.currentUserId);
+    this.chats.create(
+      this.state.currentChatMessage,
+      this.props.currentUserId,
+      this.props.selectedChannelId);
     this.setState({
       currentChatMessage: ''
     });
@@ -96,8 +106,10 @@ class Chatroom extends React.Component {
     const users = this.props.users;
     const messages = this.props.messages;
     const currentUserId = this.props.currentUserId;
-    window.messages = messages;
-    window.users = users;
+    const selectedChannelId = this.props.selectedChannelId;
+    const channels = this.props.channels;
+    let selectedChannel = channels.filter(c => c.id === selectedChannelId)[0];
+    let cur_messages = messages.filter(m => m.chatroom_id === selectedChannelId);
 
     return(
       <div className='chatroom'>
@@ -107,12 +119,14 @@ class Chatroom extends React.Component {
           <button onClick={this.props.logout}>Log Out</button>
             <ChannelListContainer/>
         </div>
+        <div className='chatbox-nav'>
+          <div className='nav-title'>#general</div>
+        </div>
 
         <div className='chatbox'>
               <div className='chat-logs'>
                 <ul>
-                  {messages.map((el, idx) => {
-
+                  {cur_messages.map((el, idx) => {
                     return (
                     <li key={`el-${idx}`}>
                       <div className="message-sender">
@@ -120,7 +134,7 @@ class Chatroom extends React.Component {
                           height="40" width="40"/>
                       </div>
                       <div className="message-content">
-                        <div className='chat-user'>{ users[el.user_id].username}</div>
+                        <div className='chat-user'>{ users[el.user_id].username }</div>
                         <div className='chat-message'>{ el.body }</div>
                         <div className='chat-created-at'>{ el.created_at }</div>
                       </div>

@@ -6,7 +6,7 @@ const workspacesReducer = (state = [], action) => {
     case RECEIVE_WORKSPACES:
       return action.workspaces;
     default:
-      return ["default"];
+      return state;
   }
 };
 

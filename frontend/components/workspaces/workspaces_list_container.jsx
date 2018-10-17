@@ -4,6 +4,7 @@ import WorkspacesList from './workspaces_list';
 import { receiveWorkspaces, fetchWorkspaces } from '../../actions/workspace_actions';
 import { selectAllWorkspace } from '../../reducers/selectors';
 
+
 const mapStateToProps = state => ({
   workspaces: state.entities.workspaces
 });
