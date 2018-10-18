@@ -13,10 +13,12 @@ class DmForm extends React.Component {
 
   constructor(props) {
     super(props);
+    let currentUser = this.props.users[props.currentUserId];
+    let userArr = new Array(0);
     this.state = {
-      name: this.props.name,
+      name: currentUser.username,
       is_dm: true,
-      user_ids:[]
+      user_ids: [currentUser.id]
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -37,10 +39,27 @@ class DmForm extends React.Component {
     this.props.history.push('/channels/1');
   }
 
+  selectUser(user) {
+    return(e) => {
+      e.preventDefault();
+      let oldName = this.state.name;
+      let nextName = oldName + ',' + user.username;
+      if (nextName[0] == ',') {
+        nextName = nextName.slice(1);
+      }
+      let oldUserArr = this.state.user_ids;
+      let nextUserArr = oldUserArr.concat([user.id]);
+      this.setState({['name']: nextName});
+      this.setState({['user_ids']: nextUserArr});
+    };
+    // this.setState({['name']: user.name});
+  }
+
    render() {
-     window.state = this.state
-     window.props = this.props
-     const users = this.props.users
+     window.state = this.state;
+     window.props = this.props;
+     let currentUser = this.props.users[props.currentUserId];
+     const users = Object.values(this.props.users);
     return (
       <div className="dm-create-container">
           <Link className="x-button" to="/channels/1">&times;</Link>
@@ -53,14 +72,19 @@ class DmForm extends React.Component {
                   placeholder=' Start a conversation'
                   value={this.state.name}
                   onChange={this.update('name')} />
+                <p>Select users from below to create a group chat</p>
                 <button className="go-button">Go</button>
                 <br></br>
                 <br></br>
-                  <ul>
+                <br></br>
+                  <ul className="user">
                     {users.map((user, idx) => {
+                      if (user.id === currentUser.id) {
+                        return;
+                      }
                       return (
                       <li key={`user-${idx}`}>
-                        <button className="select-user">
+                        <button className="select-user" onClick={this.selectUser(user)}>
                           <div className="user-pic">
                             <img src={user.img_url}
                               height="40" width="40"/>
@@ -84,7 +108,8 @@ const mapStateToProps = state => {
   return {
     name: '',
     formType: 'Direct Messages',
-    users: Object.values(state.entities.users)
+    users: state.entities.users,
+    currentUserId: state.session.id
   };
 };
 

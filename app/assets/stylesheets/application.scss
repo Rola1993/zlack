@@ -158,9 +158,12 @@ div {
     }
 
     p {
+      position: absolute;
+      top:110px;
       font-size: 14px;
       font-family: 'Nunito', sans-serif;
       color: #717274;
+      margin-bottom: 0;
     }
 
     label{
@@ -169,9 +172,10 @@ div {
     }
 
     input {
-      margin-top:8px;
+      position:absolute;
+      top:60px;
       height: 45px;
-      width: 660px;
+      width: 580px;
       font-size: 18px;
       border-radius: 4px;
       border: 1px solid #919193;
@@ -196,12 +200,12 @@ div {
 
     .go-button {
       position: absolute;
-      bottom: 20px;
-      right: 20px;
+      top: 60px;
+      right: 0px;
       color: #5B5C5E;
       background-color: #E8E8E8;
       border: 0;
-      width: 180px;
+      width: 60px;
       height: 50px;
       border-radius: 4px;
       font-weight: bold;
@@ -209,20 +213,35 @@ div {
       font-family: 'Nunito', sans-serif;
     }
 
+    .user-list{
+      overflow: scroll;
+    }
+
     .select-user{
-      width: 90%;
-
+      width: 100%;
+      height: 70px;
+      border:0px;
+      border-top: 1px solid #E8E8E8;
+      position: relative;
       .user-pic{
-
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        bottom: 5px;
+        img{
+          border-radius: 4px;
+        }
       }
 
       .username{
-
+        position: absolute;
+        top: 20px;
+        left: 60px;
       }
     }
 
-    button[className="select-user"]:hover{
-      background-color: #A9CAE5;
+    .select-user:hover{
+      background-color: #d4f2f9;
     }
   }
 }

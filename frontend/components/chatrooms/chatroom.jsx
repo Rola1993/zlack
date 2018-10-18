@@ -22,6 +22,7 @@ class Chatroom extends React.Component {
 
   componentDidMount() {
     this.createSocket(this.props.match.params.channelId);
+    this.props.requestChannels();
 
   }
 
@@ -106,7 +107,7 @@ class Chatroom extends React.Component {
     const currentUserId = this.props.currentUserId;
     const selectedChannelId = this.props.selectedChannelId;
     const channels = this.props.channels;
-    if (!channels) {
+    if (!channels || !users) {
       return <div />;
     }
     let selectedChannel = channels.find(c => c.id === selectedChannelId);
@@ -127,7 +128,6 @@ class Chatroom extends React.Component {
         <div className='chatbox-nav'>
           <div className='nav-title'>#{selectedChannel.name} </div>
           <button className='info-icon'>
-            <FontAwesomeIcon icon="info-circle" height="20px" width="20px"/>
           </button>
         </div>
 
