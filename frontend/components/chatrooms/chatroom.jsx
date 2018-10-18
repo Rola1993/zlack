@@ -7,40 +7,46 @@ import {
 } from 'react-router-dom';
 import Cable from 'actioncable';
 import ChannelListContainer from '../channels/channel_list';
-import moment from 'moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Chatroom extends React.Component {
 
   constructor(props) {
     super(props);
+    // let this.chats;
     this.state = {
       currentChatMessage: '',
       chatLogs: []
     };
-
+    this.createSocket = this.createSocket.bind(this);
   }
 
   componentDidMount() {
     this.props.requestChannels();
     this.props.requestUsers();
     this.props.requestMessages();
+    this.createSocket(this.props.match.params.channelId);
+
   }
 
   componentWillMount() {
-    this.createSocket();
-    this.props.requestChannels();
-    this.props.requestUsers();
-    this.props.requestMessages();
+
 
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.channelId !== nextProps.match.params.channelId) {
       const newChannelId = nextProps.match.params.channelId;
+      this.createSocket(newChannelId);
+
       this.props.requestChannels();
       this.props.requestUsers();
       this.props.requestMessages();
     }
+    // if (this.props.messages !== nextProps.messages) {
+    //   this.props.requestMessages();
+    //
+    // }
   }
 
   updateCurrentChatMessage(event) {
@@ -49,7 +55,7 @@ class Chatroom extends React.Component {
     });
   }
 
-  createSocket() {
+  createSocket(channelId) {
     let cable;
     if (process.env.NODE_ENV !== 'production') {
       cable = Cable.createConsumer('http://localhost:3000/cable');
@@ -57,13 +63,17 @@ class Chatroom extends React.Component {
       cable = Cable.createConsumer('wss://zlack-la.herokuapp.com/cable');
     }
     this.chats = cable.subscriptions.create({
-      channel: 'ChatChannel'
+      channel: 'ChatChannel',
+      chatroom_id: channelId
     }, {
-      connected: () => {},
+      connected: () => {
+        console.log("CONNECTED!");
+      },
+      disconnected: () => {
+        console.log("---DISCONNECTED---");
+      },
       received: (data) => {
-        let chatLogs = this.state.chatLogs;
-        chatLogs.push(data);
-        this.setState({ chatLogs: chatLogs });
+        this.props.receiveMessage(data);
       },
       create: function(chatContent, userId, chatroomId) {
         this.perform('create', {
@@ -94,6 +104,7 @@ class Chatroom extends React.Component {
     });
   }
 
+
   handleSendEvent(event) {
     event.preventDefault();
     this.chats.create(
@@ -117,10 +128,13 @@ class Chatroom extends React.Component {
     const currentUserId = this.props.currentUserId;
     const selectedChannelId = this.props.selectedChannelId;
     const channels = this.props.channels;
+    if (!channels) {
+      return <div />;
+    }
     let selectedChannel = channels.find(c => c.id === selectedChannelId);
     let cur_messages = messages.filter(m => m.chatroom_id === selectedChannelId);
 
-    if (!selectedChannel) {
+    if (!cur_messages || !selectedChannel) {
       return <div />;
     }
 
@@ -134,7 +148,11 @@ class Chatroom extends React.Component {
         </div>
         <div className='chatbox-nav'>
           <div className='nav-title'>#{selectedChannel.name} </div>
-        </div>
+          <button className='info-icon'>
+            <FontAwesomeIcon icon="info-circle" height="20px" width="20px"/>
+          </button>
+
+      </div>
 
 
         <div className='chatbox'>
@@ -144,7 +162,7 @@ class Chatroom extends React.Component {
                     const date = new Date(el.created_at.toString());
                     const create_time = date.toLocaleString('en-US',
                      { hour: 'numeric', minute: 'numeric', hour12: true });
-                     
+
                     return (
                     <li key={`el-${idx}`}>
                       <div className="message-sender">
@@ -159,7 +177,7 @@ class Chatroom extends React.Component {
                     </li>
                   )}
                 )}
-                  { this.renderChatLog() }
+                { this.renderChatLog() }
                 </ul>
               </div>
               <input

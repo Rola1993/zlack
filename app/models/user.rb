@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :workspace_memberships
   has_many :workspaces, through: :workspace_memberships, source: :workspace
   has_many :messages
+  has_many :channel_subscriptions
+  has_many :channels, through: :channel_subscriptions, source: :channel
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

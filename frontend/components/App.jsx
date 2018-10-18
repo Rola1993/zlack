@@ -8,10 +8,16 @@ import {
 } from 'react-router-dom';
 import GreetingContainer from './greetings/greeting_container';
 import ChatroomContainer from './chatrooms/chatroom_container';
+import ChannelCreateContainer from './channels/channel_create_container';
 import WorkspacesListContainer from './workspaces/workspaces_list_container';
 import LoginFormContainer from './session_forms/login_form_container';
 import SignupFormContainer from './session_forms/signup_form_container';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faPlusCircle, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+
+
+library.add(faPlusCircle, faInfoCircle);
 
 const homeContainer = () => {
   return (
@@ -44,6 +50,7 @@ const App = () => (
         <AuthRoute exect path="/login" component={LoginFormContainer} />
         <AuthRoute exect path="/signup" component={SignupFormContainer} />
         <ProtectedRoute exact path="/workspaces" component={WorkspacesListContainer} />
+        <ProtectedRoute exect path="/channels/new" component={ChannelCreateContainer} />
         <ProtectedRoute exact path="/channels/:channelId" component={ChatroomContainer} />
         <Route exact path="/" component={homeContainer} />
         <Route path='*' render={() => (<Redirect to="/" />)} />

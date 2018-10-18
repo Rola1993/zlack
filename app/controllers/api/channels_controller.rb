@@ -9,6 +9,15 @@ class Api::ChannelsController < ApplicationController
     render json: Channel.find(params[:id])
   end
 
+  def create
+    @channel = Channel.new(channel_params)
+    @channel.workspace_id = 1
+    
+    if @channel.save
+      render :show
+    end
+  end
+
   private
 
   def channel_params

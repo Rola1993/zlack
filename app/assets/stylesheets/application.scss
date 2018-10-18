@@ -39,6 +39,93 @@ div {
   padding: 0px;
 }
 
+.channel-create-container{
+  position: relative;
+
+  .x-button {
+    position: absolute;
+    right: 50px;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 40px;
+    text-decoration: none;
+    color:#717274;
+    }
+
+    .x-button:hover{
+      background:#E8E8E8;
+      border-radius: 40px;
+    }
+
+  .channel-create-form {
+    margin: auto;
+    margin-top: 110px;
+    width: 660px;
+    height: 500px;
+    position:relative;
+
+    .form-title {
+      font-weight: 600;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    p {
+      font-size: 14px;
+      font-family: 'Nunito', sans-serif;
+      color: #717274;
+    }
+
+    label{
+      font-size: 17px;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    input {
+      margin-top:8px;
+      height: 45px;
+      width: 660px;
+      font-size: 18px;
+      border-radius: 4px;
+      border: 1px solid #919193;
+    }
+
+    a {
+      position: absolute;
+      bottom: 20px;
+      right: 220px;
+      border: 0;
+      width: 100px;
+      color: #2D2C30;
+      line-height: 48px;
+      text-align:center;
+      text-decoration: none;
+      border: 1px solid #919193;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 20px;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    button {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      color: #5B5C5E;
+      background-color: #E8E8E8;
+      border: 0;
+      width: 180px;
+      height: 50px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 20px;
+      font-family: 'Nunito', sans-serif;
+    }
+  }
+}
+
+
 
 .chatroom {
   margin-left: 0px;
@@ -53,6 +140,14 @@ div {
     height: 60px;
     width: 100%;
     border-bottom: 1px solid #E5E5E5;
+
+    button{
+      font-size: 18px;
+      border:0px;
+      position: fixed;
+      right: 50px;
+      top: 5px;
+    }
 
     .nav-title {
       position: fixed;
@@ -107,6 +202,15 @@ div {
       font-family: 'Nunito', sans-serif;
       font-weight:100;
 
+
+      .create-channel{
+        color: #CAC4C9;
+        font-size: 27px;
+        position:fixed;
+        top:175px;
+        left:180px;
+      }
+
       i {
         width: 10px;
         height: 10px;
@@ -148,6 +252,7 @@ div {
     }
   }
 
+
   .chatbox{
 
     .chat-logs {
@@ -156,7 +261,7 @@ div {
 
       ul {
         li {
-          margin-top: 7px;
+          margin-top: 12px;
           width: 800px;
           margin-left: 290px;
           text-align: left;
@@ -165,12 +270,12 @@ div {
             position: relative;
 
             .chat-user{
-              font-size: 16px;
+              font-size: 15px;
               font-weight: 900;
-              font-family: 'Nunito', sans-serif;
+              font-family: sans-serif;
             }
             .chat-message{
-              font-size: 16px;
+              font-size: 15px;
               color: #2C2D30;
               font-family: 'Nunito', sans-serif;
               font-weight: normal;

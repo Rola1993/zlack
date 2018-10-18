@@ -9,7 +9,6 @@ import {connect} from 'react-redux';
 import {fetchChannels} from '../../actions/channel_actions';
 import ChannelListItem from './channel_list_item';
 
-
 class ChannelsList extends React.Component {
 
   constructor(props) {
@@ -25,7 +24,7 @@ class ChannelsList extends React.Component {
     return(
       <div className='channel-list'>
         <h5>Channels</h5>
-        <div><i height="40" width="40" className="fa fa-plus-circle"></i></div>
+          <Link to="/channels/new" className="create-channel" style={{ textDecoration: 'none' }} >&oplus;</Link>
         <ul>
           {channels.map((channel) => (
             <ChannelListItem
@@ -40,7 +39,7 @@ class ChannelsList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  channels: state.entities.channels
+  channels: Object.values(state.entities.channels)
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -11,7 +11,7 @@ import { selectChannel } from '../../actions/session_actions';
 
 const mapStateToProps = ({ entities: {channels}, session }, ownProps) => ({
   channel: ownProps.channel,
-  channels: channels
+  channels: Object.values(channels)
 });
 
 const mapDispatchToProps = dispatch => ({
