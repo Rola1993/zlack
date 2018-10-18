@@ -31,7 +31,7 @@ class ChannelListItem extends React.Component {
 
   render() {
     const channel = this.props.channel;
-
+    if (channel.is_dm === false) {
     return (
       <div className="channel-list-item" onClick={this.handleClick}>
         <li>
@@ -40,7 +40,17 @@ class ChannelListItem extends React.Component {
           </button>
         </li>
       </div>
-    );
+    );} else {
+      return (
+        <div className="channel-list-item" onClick={this.handleClick}>
+          <li>
+            <button>
+              <div className="channel-name"><p>{channel.name}</p></div>
+            </button>
+          </li>
+        </div>
+      );
+    }
   }
 }
 

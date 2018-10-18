@@ -12,7 +12,7 @@ class Api::ChannelsController < ApplicationController
   def create
     @channel = Channel.new(channel_params)
     @channel.workspace_id = 1
-    
+
     if @channel.save
       render :show
     end
@@ -21,6 +21,6 @@ class Api::ChannelsController < ApplicationController
   private
 
   def channel_params
-    params.require(:channel).permit(:name)
+    params.require(:channel).permit(:name,:user_ids)
   end
 end

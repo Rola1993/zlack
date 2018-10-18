@@ -12,6 +12,6 @@ class Api::WorkspacesController < ApplicationController
   private
 
   def workspace_params
-    params.require(:workspace).permit(:name)
+    params.require(:workspace).permit(:name,:user_ids)
   end
 end

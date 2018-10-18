@@ -22,17 +22,32 @@ class ChannelsList extends React.Component {
   render() {
     const channels = this.props.channels;
     return(
+      <div>
+        <div className='channel-list'>
+          <h5>Channels</h5>
+            <Link to="/channels/new" className="create-channel" style={{ textDecoration: 'none' }} >&oplus;</Link>
+          <ul>
+            {channels.filter(c => c.is_dm===false).map((channel) => (
+              <ChannelListItem
+                channel={channel}
+                key={channel.id}
+              />
+            ))}
+          </ul>
+        </div>
+          <br></br>
       <div className='channel-list'>
-        <h5>Channels</h5>
-          <Link to="/channels/new" className="create-channel" style={{ textDecoration: 'none' }} >&oplus;</Link>
-        <ul>
-          {channels.map((channel) => (
-            <ChannelListItem
-              channel={channel}
-              key={channel.id}
-            />
-          ))}
-        </ul>
+          <h5>Direct Messages</h5>
+            <Link to="/dms/new" className="create-channel" style={{ textDecoration: 'none' }} >&oplus;</Link>
+          <ul>
+            {channels.filter(c => c.is_dm===true).map((channel) => (
+              <ChannelListItem
+                channel={channel}
+                key={channel.id}
+              />
+            ))}
+          </ul>
+      </div>
     </div>
     )
   }

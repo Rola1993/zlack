@@ -22,16 +22,14 @@ class Chatroom extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestChannels();
-    this.props.requestUsers();
-    this.props.requestMessages();
     this.createSocket(this.props.match.params.channelId);
 
   }
 
   componentWillMount() {
-
-
+    this.props.requestChannels();
+    this.props.requestUsers();
+    this.props.requestMessages();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -85,25 +83,6 @@ class Chatroom extends React.Component {
     });
   }
 
-  renderChatLog() {
-    const users = this.props.users;
-    return this.state.chatLogs.map((el, idx) => {
-      return (
-        <li key={`el-${idx}`}>
-          <div className="message-sender">
-            <img src={users[el.user_id].img_url}
-              height="40" width="40"/>
-          </div>
-          <div className="message-content">
-            <div className='chat-user'>{ users[el.user_id].username}</div>
-            <div className='chat-message'>{ el.body }</div>
-            <div className='chat-created-at'>{ el.created_at }</div>
-          </div>
-        </li>
-      );
-    });
-  }
-
 
   handleSendEvent(event) {
     event.preventDefault();
@@ -151,8 +130,7 @@ class Chatroom extends React.Component {
           <button className='info-icon'>
             <FontAwesomeIcon icon="info-circle" height="20px" width="20px"/>
           </button>
-
-      </div>
+        </div>
 
 
         <div className='chatbox'>
@@ -177,16 +155,17 @@ class Chatroom extends React.Component {
                     </li>
                   )}
                 )}
-                { this.renderChatLog() }
                 </ul>
               </div>
-              <input
-                onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
-                value={ this.state.currentChatMessage }
-                onChange={ (e) => this.updateCurrentChatMessage(e) }
-                type='text'
-                placeholder='Enter your message...'
-                className='chat-input'/>
+              <div className="sendMsg">
+                <input
+                  onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
+                  value={ this.state.currentChatMessage }
+                  onChange={ (e) => this.updateCurrentChatMessage(e) }
+                  type='text'
+                  placeholder='Enter your message...'
+                  className='chat-input'/>
+            </div>
         </div>
       </div>
     )

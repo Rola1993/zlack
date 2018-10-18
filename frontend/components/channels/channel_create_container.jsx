@@ -15,7 +15,7 @@ class ChannelForm extends React.Component {
     super(props);
     this.state = {
       name: this.props.name,
-      private: this.props.private
+      is_dm: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -67,7 +67,6 @@ class ChannelForm extends React.Component {
 const mapStateToProps = state => {
   return {
     name: '',
-    private: false,
     formType: 'Create a channel'
   };
 };
