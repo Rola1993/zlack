@@ -14,11 +14,7 @@ import WorkspacesListContainer from './workspaces/workspaces_list_container';
 import LoginFormContainer from './session_forms/login_form_container';
 import SignupFormContainer from './session_forms/signup_form_container';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPlusCircle, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
-
-library.add(faPlusCircle, faInfoCircle);
 
 const homeContainer = () => {
   return (

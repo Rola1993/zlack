@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import Cable from 'actioncable';
 import ChannelListContainer from '../channels/channel_list';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Chatroom extends React.Component {
 
