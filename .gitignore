@@ -8,8 +8,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
-/tmp
-node_modules/
+/tmp/*
+/node_modules/
 bundle.js
 bundle.js.map
 .byebug_history
