@@ -29,6 +29,8 @@ class ChannelListItem extends React.Component {
     this.props.history.push(`/channels/${channelId}`);
   }
 
+
+
   render() {
     const channel = this.props.channel;
     if (channel.is_dm === false) {

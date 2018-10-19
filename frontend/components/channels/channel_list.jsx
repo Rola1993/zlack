@@ -13,14 +13,25 @@ class ChannelsList extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      channels: this.props.channels
+    };
+
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.channels.length != this.state.channels.length) {
+      this.setState({["channels"]: nextProps.channels});
+    }
+  }
 
   componentDidMount() {
   }
 
   render() {
-    const channels = this.props.channels;
+    let channels = this.state.channels;
+    // debugger;
+    console.log(channels);
     return(
       <div>
         <div className='channel-list'>
@@ -38,7 +49,7 @@ class ChannelsList extends React.Component {
           <br></br>
       <div className='channel-list'>
           <h5>Direct Messages</h5>
-            <Link to="/dms/new" className="create-channel" style={{ textDecoration: 'none' }} >&oplus;</Link>
+            <Link to="/channels/newdm" className="create-channel" style={{ textDecoration: 'none' }} >&oplus;</Link>
           <ul>
             {channels.filter(c => c.is_dm===true).map((channel) => (
               <ChannelListItem
@@ -53,7 +64,7 @@ class ChannelsList extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state,ownprops) => ({
   channels: Object.values(state.entities.channels)
 });
 

@@ -21,6 +21,7 @@ class DmForm extends React.Component {
       user_ids: [currentUser.id]
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.redirectToTarget = this.redirectToTarget.bind(this);
   }
 
   componentWillUnmount() {
@@ -36,7 +37,11 @@ class DmForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state);
-    this.props.history.push('/channels/1');
+    this.redirectToTarget();
+  }
+
+  redirectToTarget(){
+    this.props.history.push(`/channels/1`)
   }
 
   selectUser(user) {

@@ -12,13 +12,14 @@ class Chatroom extends React.Component {
 
   constructor(props) {
     super(props);
-    // let this.chats;
     this.state = {
       currentChatMessage: '',
-      chatLogs: []
+      chatLogs: [],
+      channels: this.props.channels
     };
     this.createSocket = this.createSocket.bind(this);
   }
+
 
   componentDidMount() {
     this.createSocket(this.props.match.params.channelId);
@@ -33,6 +34,9 @@ class Chatroom extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // if(nextProps.channels.length !== this.state.channels.length) {
+    //   this.setState({["channels"]: nextProps.channels});
+    // }
     if (this.props.match.params.channelId !== nextProps.match.params.channelId) {
       const newChannelId = nextProps.match.params.channelId;
       this.createSocket(newChannelId);
@@ -116,14 +120,13 @@ class Chatroom extends React.Component {
     if (!cur_messages || !selectedChannel) {
       return <div />;
     }
-
     return(
       <div className='chatroom'>
         <div className='sidebar'>
           <h3>App Academy</h3>
           <div className='username'> {users[currentUserId].username}</div>
           <button onClick={this.props.logout}>Log Out</button>
-            <ChannelListContainer/>
+            <ChannelListContainer channels={this.props.channels}/>
         </div>
         <div className='chatbox-nav'>
           <div className='nav-title'>#{selectedChannel.name} </div>

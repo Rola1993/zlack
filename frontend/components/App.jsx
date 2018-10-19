@@ -48,7 +48,7 @@ const App = () => (
         <AuthRoute exect path="/signup" component={SignupFormContainer} />
         <ProtectedRoute exact path="/workspaces" component={WorkspacesListContainer} />
         <ProtectedRoute exect path="/channels/new" component={ChannelCreateContainer} />
-        <ProtectedRoute exect path="/dms/new" component={DmCreateContainer} />
+        <ProtectedRoute exect path="/channels/newdm" component={DmCreateContainer} />
         <ProtectedRoute exact path="/channels/:channelId" component={ChatroomContainer} />
         <Route exact path="/" component={homeContainer} />
         <Route path='*' render={() => (<Redirect to="/" />)} />

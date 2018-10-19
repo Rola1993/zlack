@@ -13,9 +13,11 @@ class ChannelForm extends React.Component {
 
   constructor(props) {
     super(props);
+    let user_ids = this.props.user_ids.map(el => parseInt(el));
     this.state = {
       name: this.props.name,
-      is_dm: false
+      is_dm: false,
+      user_ids: user_ids
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -37,7 +39,10 @@ class ChannelForm extends React.Component {
   }
 
    render() {
+     window.state = this.state;
+     window.props = this.props;
     return (
+
       <div className="channel-create-container">
           <Link className="x-button" to="/channels/1">&times;</Link>
           <form className="channel-create-form" onSubmit={this.handleSubmit}>
@@ -67,7 +72,8 @@ class ChannelForm extends React.Component {
 const mapStateToProps = state => {
   return {
     name: '',
-    formType: 'Create a channel'
+    formType: 'Create a channel',
+    user_ids: Object.keys(state.entities.users)
   };
 };
 

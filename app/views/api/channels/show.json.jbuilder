@@ -1,1 +1,1 @@
-json.extract! @channel, :id, :name, :workspace_id
+json.extract! @channel, :id, :name, :workspace_id, :is_dm

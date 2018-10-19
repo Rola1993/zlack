@@ -397,7 +397,7 @@ var App = function App() {
     component: _channels_channel_create_container__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["ProtectedRoute"], {
     exect: true,
-    path: "/dms/new",
+    path: "/channels/newdm",
     component: _channels_dm_create_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["ProtectedRoute"], {
     exact: true,
@@ -472,9 +472,15 @@ function (_React$Component) {
     _classCallCheck(this, ChannelForm);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ChannelForm).call(this, props));
+
+    var user_ids = _this.props.user_ids.map(function (el) {
+      return parseInt(el);
+    });
+
     _this.state = {
       name: _this.props.name,
-      is_dm: false
+      is_dm: false,
+      user_ids: user_ids
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
@@ -502,6 +508,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      window.state = this.state;
+      window.props = this.props;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "channel-create-container"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
@@ -529,7 +537,8 @@ function (_React$Component) {
 var mapStateToProps = function mapStateToProps(state) {
   return {
     name: '',
-    formType: 'Create a channel'
+    formType: 'Create a channel',
+    user_ids: Object.keys(state.entities.users)
   };
 };
 
@@ -562,6 +571,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _channel_list_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./channel_list_item */ "./frontend/components/channels/channel_list_item.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -590,18 +601,33 @@ function (_React$Component) {
   _inherits(ChannelsList, _React$Component);
 
   function ChannelsList(props) {
+    var _this;
+
     _classCallCheck(this, ChannelsList);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelsList).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ChannelsList).call(this, props));
+    _this.state = {
+      channels: _this.props.channels
+    };
+    return _this;
   }
 
   _createClass(ChannelsList, [{
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.channels.length != this.state.channels.length) {
+        this.setState(_defineProperty({}, "channels", nextProps.channels));
+      }
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {}
   }, {
     key: "render",
     value: function render() {
-      var channels = this.props.channels;
+      var channels = this.state.channels; // debugger;
+
+      console.log(channels);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-list"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Channels"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -620,7 +646,7 @@ function (_React$Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-list"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Direct Messages"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/dms/new",
+        to: "/channels/newdm",
         className: "create-channel",
         style: {
           textDecoration: 'none'
@@ -639,7 +665,7 @@ function (_React$Component) {
   return ChannelsList;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(state, ownprops) {
   return {
     channels: Object.values(state.entities.channels)
   };
@@ -814,6 +840,7 @@ function (_React$Component) {
       user_ids: [currentUser.id]
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.redirectToTarget = _this.redirectToTarget.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -834,7 +861,12 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       this.props.processForm(this.state);
-      this.props.history.push('/channels/1');
+      this.redirectToTarget();
+    }
+  }, {
+    key: "redirectToTarget",
+    value: function redirectToTarget() {
+      this.props.history.push("/channels/1");
     }
   }, {
     key: "selectUser",
@@ -981,11 +1013,11 @@ function (_React$Component) {
 
     _classCallCheck(this, Chatroom);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Chatroom).call(this, props)); // let this.chats;
-
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Chatroom).call(this, props));
     _this.state = {
       currentChatMessage: '',
-      chatLogs: []
+      chatLogs: [],
+      channels: _this.props.channels
     };
     _this.createSocket = _this.createSocket.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
@@ -1007,6 +1039,9 @@ function (_React$Component) {
   }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
+      // if(nextProps.channels.length !== this.state.channels.length) {
+      //   this.setState({["channels"]: nextProps.channels});
+      // }
       if (this.props.match.params.channelId !== nextProps.match.params.channelId) {
         var newChannelId = nextProps.match.params.channelId;
         this.createSocket(newChannelId);
@@ -1109,7 +1144,9 @@ function (_React$Component) {
         className: "username"
       }, " ", users[currentUserId].username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.logout
-      }, "Log Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_channels_channel_list__WEBPACK_IMPORTED_MODULE_3__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Log Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_channels_channel_list__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        channels: this.props.channels
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatbox-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-title"
