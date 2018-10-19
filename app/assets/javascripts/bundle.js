@@ -625,7 +625,11 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var channels = this.state.channels; // debugger;
+      var currentUserId = this.props.currentUserId; // debugger;
+
+      var channels = this.props.channels.filter(function (c) {
+        return c.user_ids.includes(currentUserId);
+      }); // debugger;
 
       console.log(channels);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -667,7 +671,9 @@ function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(state, ownprops) {
   return {
-    channels: Object.values(state.entities.channels)
+    channels: Object.values(state.entities.channels),
+    currentUserId: state.session.id,
+    users: state.entities.users
   };
 };
 
@@ -1016,7 +1022,6 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Chatroom).call(this, props));
     _this.state = {
       currentChatMessage: '',
-      chatLogs: [],
       channels: _this.props.channels
     };
     _this.createSocket = _this.createSocket.bind(_assertThisInitialized(_assertThisInitialized(_this)));
@@ -1027,7 +1032,6 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.createSocket(this.props.match.params.channelId);
-      this.props.requestChannels();
     }
   }, {
     key: "componentWillMount",
@@ -1769,10 +1773,7 @@ var channelsReducer = function channelsReducer() {
 
   switch (action.type) {
     case _actions_channel_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CHANNELS"]:
-      action.channels.forEach(function (chl) {
-        nextState[chl.id] = chl;
-      });
-      return nextState;
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, action.channels);
 
     case _actions_channel_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CHANNEL"]:
       var newChl = _defineProperty({}, action.payload.id, action.payload);

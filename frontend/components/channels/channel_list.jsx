@@ -29,7 +29,10 @@ class ChannelsList extends React.Component {
   }
 
   render() {
-    let channels = this.state.channels;
+    let currentUserId = this.props.currentUserId;
+    // debugger;
+
+    let channels = this.props.channels.filter(c => c.user_ids.includes(currentUserId));
     // debugger;
     console.log(channels);
     return(
@@ -65,7 +68,9 @@ class ChannelsList extends React.Component {
 }
 
 const mapStateToProps = (state,ownprops) => ({
-  channels: Object.values(state.entities.channels)
+  channels: Object.values(state.entities.channels),
+  currentUserId: state.session.id,
+  users: state.entities.users
 });
 
 const mapDispatchToProps = dispatch => ({

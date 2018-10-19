@@ -2,11 +2,12 @@ class Api::ChannelsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    render json: Channel.all()
+    @channels = Channel.all
+    render :index
   end
 
   def show
-    render json: Channel.find(params[:id])
+    render json: Channel.find(params[:id]), include: :users
   end
 
   def create

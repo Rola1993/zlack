@@ -7,10 +7,7 @@ const channelsReducer = (state = [], action) => {
   let nextState = {};
   switch(action.type) {
     case RECEIVE_CHANNELS:
-      action.channels.forEach( chl => {
-        nextState[chl.id] = chl;
-      });
-      return nextState;
+      return merge({}, state, action.channels);
     case RECEIVE_CHANNEL:
         const newChl = { [action.payload.id]: action.payload };
         return merge({}, state, newChl);

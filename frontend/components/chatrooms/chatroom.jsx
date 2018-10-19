@@ -14,7 +14,6 @@ class Chatroom extends React.Component {
     super(props);
     this.state = {
       currentChatMessage: '',
-      chatLogs: [],
       channels: this.props.channels
     };
     this.createSocket = this.createSocket.bind(this);
@@ -23,7 +22,6 @@ class Chatroom extends React.Component {
 
   componentDidMount() {
     this.createSocket(this.props.match.params.channelId);
-    this.props.requestChannels();
 
   }
 
