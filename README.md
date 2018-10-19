@@ -8,7 +8,7 @@ This is a app clone which has basic features of Slack. Users can do live chat in
 
 ![alt text][homepage]
 
-[homepage]:(https://github.com/Rola1993/zlack/blob/master/homepage.png)
+[homepage]:(/blob/master/homepage.png?raw=true)
 
 ![alt text][livechat]
 
