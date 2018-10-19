@@ -1140,6 +1140,10 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       }
 
+      if (!users[currentUserId]) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

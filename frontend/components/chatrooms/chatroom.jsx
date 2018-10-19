@@ -118,6 +118,9 @@ class Chatroom extends React.Component {
     if (!cur_messages || !selectedChannel) {
       return <div />;
     }
+    if (!users[currentUserId]) {
+      return <div />;
+    }
     return(
       <div className='chatroom'>
         <div className='sidebar'>
