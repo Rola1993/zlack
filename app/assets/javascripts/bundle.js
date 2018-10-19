@@ -768,14 +768,19 @@ function (_React$Component) {
           onClick: this.handleClick
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "channel-name"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "# ", channel.name)))));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "symbol-channel"
+        }, "#"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, channel.name)))));
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "channel-list-item",
           onClick: this.handleClick
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "channel-name"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, channel.name)))));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fa fa-circle",
+          "aria-hidden": "true"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, channel.name)))));
       }
     }
   }]);
@@ -1148,7 +1153,10 @@ function (_React$Component) {
         className: "chatroom"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "App Academy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "App Academy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-circle",
+        "aria-hidden": "true"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "username"
       }, " ", users[currentUserId].username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.logout

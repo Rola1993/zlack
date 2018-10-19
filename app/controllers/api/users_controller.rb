@@ -17,6 +17,7 @@ class Api::UsersController < ApplicationController
       "https://ca.slack-edge.com/T03GU501J-U173XUKEH-ga475614689e-48"
       ]
     @user.img_url = profile_pic.sample
+    @user.channel_ids = [1]
     if @user.save
       login!(@user)
       render "api/users/show"

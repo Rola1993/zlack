@@ -125,6 +125,9 @@ class Chatroom extends React.Component {
       <div className='chatroom'>
         <div className='sidebar'>
           <h3>App Academy</h3>
+            <i className="fa fa-circle"
+              aria-hidden="true">
+            </i>
           <div className='username'> {users[currentUserId].username}</div>
           <button onClick={this.props.logout}>Log Out</button>
             <ChannelListContainer channels={this.props.channels}/>

@@ -38,7 +38,11 @@ class ChannelListItem extends React.Component {
       <div className="channel-list-item" onClick={this.handleClick}>
         <li>
           <button>
-            <div className="channel-name"><p># {channel.name}</p></div>
+            <div className="channel-name">
+              <div className="symbol-channel">#
+              </div>
+              <p>{channel.name}</p>
+            </div>
           </button>
         </li>
       </div>
@@ -47,7 +51,12 @@ class ChannelListItem extends React.Component {
         <div className="channel-list-item" onClick={this.handleClick}>
           <li>
             <button>
-              <div className="channel-name"><p>{channel.name}</p></div>
+              <div className="channel-name">
+                <i className="fa fa-circle"
+                  aria-hidden="true">
+                </i>
+                <p>{channel.name}</p>
+              </div>
             </button>
           </li>
         </div>
