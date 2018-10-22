@@ -1,6 +1,6 @@
 
 Inline-style: 
-![logo] (https://raw.githubusercontent.com/Rola1993/zlack/master/app/assets/images/homepage.png “logo”)
+![logo] (https://github.com/Rola1993/zlack/blob/master/app/assets/images/logo.png?raw=true “logo”)
 
 
 # zlack
