@@ -8,6 +8,6 @@ This is a app clone which has basic features of Slack. Users can do live chat in
 
 
 
-![Homepage](/app/assets/images/homepage.png?raw=true “Homepage”)
+![Homepage](\app\assets\images\homepage.png?raw=true “Homepage”)
 
-![Livechat](/app/assets/images/livechat.png?raw=true “Homepage”)
+![Livechat](\app\assets\images\livechat.png?raw=true “Homepage”)
