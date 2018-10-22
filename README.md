@@ -11,3 +11,6 @@ This is a app clone which has basic features of Slack. Users can do live chat in
 
 
 ![livechat](https://github.com/Rola1993/zlack/blob/master/app/assets/images/livechat.png)
+
+
+![createdm](https://github.com/Rola1993/zlack/blob/master/app/assets/images/create-dm.png)
