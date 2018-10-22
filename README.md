@@ -1,8 +1,6 @@
 
 ![alt text](https://raw.githubusercontent.com/Rola1993/zlack/master/app/assets/images/homepage.png)
 
-![logo]: https://github.com/Rola1993/zlack/blob/master/app/assets/images/logo.png?raw=true “logo”
-
 
 # zlack
 
@@ -11,3 +9,5 @@
 ### Introduction
 
 This is a app clone which has basic features of Slack. Users can do live chat in the chatroom. They can create new channels for all users. They can also form a group chat for certain users.
+
+![logo](https://github.com/Rola1993/zlack/blob/master/app/assets/images/homepage.png)
