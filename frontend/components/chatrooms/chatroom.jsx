@@ -32,9 +32,7 @@ class Chatroom extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // if(nextProps.channels.length !== this.state.channels.length) {
-    //   this.setState({["channels"]: nextProps.channels});
-    // }
+
     if (this.props.match.params.channelId !== nextProps.match.params.channelId) {
       const newChannelId = nextProps.match.params.channelId;
       this.createSocket(newChannelId);
@@ -43,10 +41,7 @@ class Chatroom extends React.Component {
       this.props.requestUsers();
       this.props.requestMessages();
     }
-    // if (this.props.messages !== nextProps.messages) {
-    //   this.props.requestMessages();
-    //
-    // }
+
   }
 
   updateCurrentChatMessage(event) {
