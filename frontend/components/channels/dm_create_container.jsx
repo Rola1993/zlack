@@ -3,9 +3,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import {createChannel} from '../../actions/channel_actions';
 import {
-  Route,
-  Redirect,
-  Switch,
   Link
 } from 'react-router-dom';
 
@@ -14,7 +11,6 @@ class DmForm extends React.Component {
   constructor(props) {
     super(props);
     let currentUser = this.props.users[props.currentUserId];
-    let userArr = new Array(0);
     this.state = {
       name: currentUser.username,
       is_dm: true,
@@ -22,9 +18,6 @@ class DmForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.redirectToTarget = this.redirectToTarget.bind(this);
-  }
-
-  componentWillUnmount() {
   }
 
   update(field) {
@@ -57,7 +50,6 @@ class DmForm extends React.Component {
       this.setState({['name']: nextName});
       this.setState({['user_ids']: nextUserArr});
     };
-    // this.setState({['name']: user.name});
   }
 
    render() {
