@@ -8,6 +8,7 @@ import {
 import Cable from 'actioncable';
 import ChannelListContainer from '../channels/channel_list';
 
+////comment
 class Chatroom extends React.Component {
 
   constructor(props) {
