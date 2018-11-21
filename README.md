@@ -19,7 +19,7 @@ When creating a new group chat, only users who are selected would be able to sub
  
  ### Real Time Messaging
  
- It uses 'ActionCable' to realize live chat. Everytime when the current user switches to a chatroom, the Cable.createConsumer() function would set up a WebSocket connection to the Rails server. Then the subscription.create() opens a ChatChannel for that specific chatroom id. 
+ It uses 'ActionCable' to realize live chat. Everytime when the current user switches to a chatroom, componentWillReceiveProps() would detect this change and call createSocket(). That function would set up a Websocket connection to the Rails server and then create the channel subscription for that specific chatroom id. 
  
  ```javascript 
   createSocket(channelId) {
@@ -52,7 +52,8 @@ When creating a new group chat, only users who are selected would be able to sub
     });
   }
  ```
-This ChatChannel has a callback function create() which takes in message body, user and chatroom it belongs to and generates a new message instance to database.
+Here I designed my own channel class which has a function create() that takes in message body, user and chatroom it belongs to and generates a new message instance into my database.
+
  
  ```javascript
  class ChatChannel < ApplicationCable::Channel
@@ -72,7 +73,7 @@ This ChatChannel has a callback function create() which takes in message body, u
  end
  ```
  
-It also lets the ActionCable server to broadcast the new message information back. This ChatChannel's callback function received() would obtain the data and update the component's props to show the new message instantly.
+Here I created the broadcast job which lets the ActionCable server to broadcast the new message information to that particular channel. That cable.subscriptions.create() has a callback function received() that would obtain the data and update the component's props to show the new message instantly.
  
  ```javascript
  class MessageCreationEventBroadcastJob < ApplicationJob
