@@ -5,10 +5,10 @@ import {fetchMessages, receiveMessage} from '../../actions/message_actions';
 import {fetchUsers} from '../../actions/user_actions';
 import { logout } from '../../actions/session_actions';
 import { fetchChannel,fetchChannels } from '../../actions/channel_actions';
-import { } from '../../reducers/selectors';
+import { allMessages } from '../../reducers/selectors';
 
 const mapStateToProps = ({entities, session}, ownProps) => ({
-  messages: Object.values(entities.messages),
+  messages: allMessages(entities),
   currentUserId: session.id,
   users: entities.users,
   selectedChannelId: parseInt(ownProps.match.params.channelId),
