@@ -844,7 +844,6 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(DmForm).call(this, props));
     var currentUser = _this.props.users[props.currentUserId];
-    var userArr = new Array(0);
     _this.state = {
       name: currentUser.username,
       is_dm: true,
@@ -856,9 +855,6 @@ function (_React$Component) {
   }
 
   _createClass(DmForm, [{
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {}
-  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -899,7 +895,7 @@ function (_React$Component) {
         _this3.setState(_defineProperty({}, 'name', nextName));
 
         _this3.setState(_defineProperty({}, 'user_ids', nextUserArr));
-      }; // this.setState({['name']: user.name});
+      };
     }
   }, {
     key: "render",
@@ -1012,7 +1008,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
-
+ ////comment
 
 var Chatroom =
 /*#__PURE__*/
@@ -1030,6 +1026,8 @@ function (_React$Component) {
       channels: _this.props.channels
     };
     _this.createSocket = _this.createSocket.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.myRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+    _this.openModal = _this.openModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -1048,20 +1046,13 @@ function (_React$Component) {
   }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
-      // if(nextProps.channels.length !== this.state.channels.length) {
-      //   this.setState({["channels"]: nextProps.channels});
-      // }
       if (this.props.match.params.channelId !== nextProps.match.params.channelId) {
         var newChannelId = nextProps.match.params.channelId;
         this.createSocket(newChannelId);
         this.props.requestChannels();
         this.props.requestUsers();
         this.props.requestMessages();
-      } // if (this.props.messages !== nextProps.messages) {
-      //   this.props.requestMessages();
-      //
-      // }
-
+      }
     }
   }, {
     key: "updateCurrentChatMessage",
@@ -1120,6 +1111,12 @@ function (_React$Component) {
       }
     }
   }, {
+    key: "openModal",
+    value: function openModal(e) {
+      var infoModal = this.myRef.current;
+      infoModal.style.display = "block";
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
@@ -1167,16 +1164,25 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-title"
       }, "#", selectedChannel.name, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "info-icon"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "channel-info",
+        id: "channel-info",
+        onClick: this.openModal
+      }, "\u24D8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        ref: this.myRef,
+        className: "modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "close"
+      }, "\xD7")), "modalmodalmodal")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatbox"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-logs"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, cur_messages.map(function (el, idx) {
         var date = new Date(el.created_at.toString());
-        var create_time = date.toLocaleString('en-US', {
-          hour: 'numeric',
-          minute: 'numeric',
+        var create_time = date.toLocaleString("en-US", {
+          hour: "numeric",
+          minute: "numeric",
           hour12: true
         });
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -1207,7 +1213,7 @@ function (_React$Component) {
           return _this3.updateCurrentChatMessage(e);
         },
         type: "text",
-        placeholder: "Enter your message...",
+        placeholder: " Enter your message...",
         className: "chat-input"
       }))));
     }
@@ -1248,7 +1254,7 @@ var mapStateToProps = function mapStateToProps(_ref, ownProps) {
   var entities = _ref.entities,
       session = _ref.session;
   return {
-    messages: Object.values(entities.messages),
+    messages: Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_6__["allMessages"])(entities),
     currentUserId: session.id,
     users: entities.users,
     selectedChannelId: parseInt(ownProps.match.params.channelId),
@@ -1935,17 +1941,21 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
 /*!****************************************!*\
   !*** ./frontend/reducers/selectors.js ***!
   \****************************************/
-/*! exports provided: selectAllWorkspace */
+/*! exports provided: selectAllWorkspace, allMessages */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectAllWorkspace", function() { return selectAllWorkspace; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "allMessages", function() { return allMessages; });
 /* harmony import */ var lodash_values__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/values */ "./node_modules/lodash/values.js");
 /* harmony import */ var lodash_values__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_values__WEBPACK_IMPORTED_MODULE_0__);
 
 var selectAllWorkspace = function selectAllWorkspace(state) {
   return lodash_values__WEBPACK_IMPORTED_MODULE_0___default()(state.entities.workspaces);
+};
+var allMessages = function allMessages(entities) {
+  return lodash_values__WEBPACK_IMPORTED_MODULE_0___default()(entities.messages);
 };
 
 /***/ }),

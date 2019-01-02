@@ -246,6 +246,32 @@ div {
   }
 }
 
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  right: 0;
+  top: 66px;
+  width: 300px; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #fff; /* Fallback color */
+  border-left: 1px solid #E5E5E5;
+
+    .modal-header {
+      position:relative;
+      background-color: #F9F9F9;
+      height: 55px;
+
+      .close{
+        position: absolute;
+        right:20px;
+        top:15px;
+        font-size:20px;
+        color: #717274;
+      }
+    }
+}
 
 
 .chatroom {
@@ -262,7 +288,7 @@ div {
     z-index: 1;
     border-bottom: 1px solid #E5E5E5;
 
-    button{
+    .channel-info{
       font-size: 18px;
       border:0px;
       position: fixed;
@@ -498,7 +524,7 @@ div {
     bottom: 20px;
     z-index: 1;
     height: 40px;
-    width: 1000px;
+    width: 80%;
     border: 2px solid #B2B2B3;
     border-radius: 6px;
   }
