@@ -262,12 +262,23 @@ div {
       position:relative;
       background-color: #F9F9F9;
       height: 55px;
+      margin-top: -20px;
+      border-bottom: 1px solid #E5E5E5;
 
+      p {
+          margin-left: 10px;
+          padding-top: 12px; 
+          font-family: 'Yantramanav', sans-serif;
+          font-weight: bold;
+          font-size: 20px;
+      }
       .close{
+        border: 0px;
+        height: 10px;
         position: absolute;
         right:20px;
-        top:15px;
-        font-size:20px;
+        top:0px;
+        font-size:23px;
         color: #717274;
       }
     }

@@ -1028,6 +1028,7 @@ function (_React$Component) {
     _this.createSocket = _this.createSocket.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.myRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
     _this.openModal = _this.openModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -1117,6 +1118,12 @@ function (_React$Component) {
       infoModal.style.display = "block";
     }
   }, {
+    key: "closeModal",
+    value: function closeModal(e) {
+      var infoModal = this.myRef.current;
+      infoModal.style.display = "none";
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
@@ -1172,9 +1179,10 @@ function (_React$Component) {
         className: "modal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "close"
-      }, "\xD7")), "modalmodalmodal")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "About #", selectedChannel.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "close",
+        onClick: this.closeModal
+      }, "\xD7")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatbox"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-logs"

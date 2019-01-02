@@ -20,6 +20,7 @@ class Chatroom extends React.Component {
     this.createSocket = this.createSocket.bind(this);
     this.myRef = React.createRef();
     this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
 
@@ -104,7 +105,11 @@ class Chatroom extends React.Component {
   openModal(e) {
     var infoModal = this.myRef.current;
     infoModal.style.display = "block";
+  }
 
+  closeModal(e) {
+    var infoModal = this.myRef.current;
+    infoModal.style.display = "none";
   }
 
   render() {
@@ -140,9 +145,9 @@ class Chatroom extends React.Component {
           </button>
           <div ref={this.myRef} className="modal">
             <div className="modal-header">
-              <span className="close">&times;</span>
+              <p>About #{selectedChannel.name}</p>
+              <button className="close" onClick={this.closeModal}>&times;</button>
             </div>
-            modalmodalmodal
           </div>
         </div>
 
