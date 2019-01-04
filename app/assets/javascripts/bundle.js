@@ -1182,7 +1182,12 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "About #", selectedChannel.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "close",
         onClick: this.closeModal
-      }, "\xD7")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "\xD7")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        id: "person-icon",
+        className: "material-icons"
+      }, "person"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, selectedChannel.user_ids.length, " Members"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatbox"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-logs"

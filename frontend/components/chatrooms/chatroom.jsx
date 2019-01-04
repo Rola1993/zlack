@@ -146,7 +146,17 @@ class Chatroom extends React.Component {
           <div ref={this.myRef} className="modal">
             <div className="modal-header">
               <p>About #{selectedChannel.name}</p>
-              <button className="close" onClick={this.closeModal}>&times;</button>
+              <button className="close" onClick={this.closeModal}>
+                &times;
+              </button>
+            </div>
+            <div className="modal-content">
+              <div>
+                <i id="person-icon" className="material-icons">
+                  person
+                </i> 
+              <span>{selectedChannel.user_ids.length} Members</span>
+              </div>
             </div>
           </div>
         </div>

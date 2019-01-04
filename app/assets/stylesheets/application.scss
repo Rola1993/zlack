@@ -282,6 +282,25 @@ div {
         color: #717274;
       }
     }
+
+    .modal-content{
+
+      #person-icon{
+        position: relative;
+        color: green;
+        top: 8px;
+        left: 5px;
+      }
+
+      span{
+        position: relative;
+        left: 8px;
+        top: 3px;
+        font-size: 18px;
+        color: #2D2D30;
+        font-family: 'Nunito', sans-serif;
+      }
+    }
 }
 
 
