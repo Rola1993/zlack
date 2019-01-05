@@ -285,21 +285,39 @@ div {
 
     .modal-content{
 
-      #person-icon{
+      .member-btn{
         position: relative;
+        text-align: left;
+        width: 100%;
+        height: 55px;
+        border: 0px;
+        border-bottom: 1px solid #E5E5E5;     
+        
+      #person-icon{
+        position: absolute;
         color: green;
-        top: 8px;
+        top: 15px;
         left: 5px;
       }
 
       span{
-        position: relative;
-        left: 8px;
-        top: 3px;
+        position: absolute;
+        left: 35px;
+        top: 15px;
         font-size: 18px;
         color: #2D2D30;
         font-family: 'Nunito', sans-serif;
       }
+
+      .arrow-right{
+        font-size: 24px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color:#727274;
+      }
+
+     }
     }
 }
 

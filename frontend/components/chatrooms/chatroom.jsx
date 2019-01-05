@@ -21,6 +21,7 @@ class Chatroom extends React.Component {
     this.myRef = React.createRef();
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.openMemberList = this.openMemberList.bind(this);
   }
 
 
@@ -112,6 +113,10 @@ class Chatroom extends React.Component {
     infoModal.style.display = "none";
   }
 
+  openMemberList(e) {
+
+  }
+
   render() {
     const users = this.props.users;
     const messages = this.props.messages;
@@ -151,12 +156,17 @@ class Chatroom extends React.Component {
               </button>
             </div>
             <div className="modal-content">
-              <div>
+              <button className="member-btn" onClick={this.openMemberList}>
                 <i id="person-icon" className="material-icons">
                   person
-                </i> 
-              <span>{selectedChannel.user_ids.length} Members</span>
+                </i>
+                <span>{selectedChannel.user_ids.length} Members</span>
+              <div className="arrow-right">
+                <i className="material-icons">
+                  arrow_right
+                </i>
               </div>
+              </button>
             </div>
           </div>
         </div>

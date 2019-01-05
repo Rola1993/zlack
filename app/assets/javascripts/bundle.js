@@ -1029,6 +1029,7 @@ function (_React$Component) {
     _this.myRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
     _this.openModal = _this.openModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.openMemberList = _this.openMemberList.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -1124,6 +1125,9 @@ function (_React$Component) {
       infoModal.style.display = "none";
     }
   }, {
+    key: "openMemberList",
+    value: function openMemberList(e) {}
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
@@ -1184,10 +1188,17 @@ function (_React$Component) {
         onClick: this.closeModal
       }, "\xD7")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "member-btn",
+        onClick: this.openMemberList
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         id: "person-icon",
         className: "material-icons"
-      }, "person"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, selectedChannel.user_ids.length, " Members"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "person"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, selectedChannel.user_ids.length, " Members"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "material-icons"
+      }, "arrow_right")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatbox"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-logs"
