@@ -1155,8 +1155,13 @@ function (_React$Component) {
 
       if (!users[currentUserId]) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
-      }
+      } // console.log(selectedChannel.user_ids);
+      // console.log(users);
 
+
+      var cur_users = selectedChannel.user_ids.map(function (user_id) {
+        return users[user_id];
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1198,7 +1203,14 @@ function (_React$Component) {
         className: "arrow-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "material-icons"
-      }, "arrow_right")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "arrow_right"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        ref: this.memberRef,
+        className: "memberlist"
+      }, cur_users.map(function (user, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: idx
+        }, user.username);
+      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatbox"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-logs"

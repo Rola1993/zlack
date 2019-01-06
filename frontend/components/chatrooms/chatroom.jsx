@@ -128,13 +128,18 @@ class Chatroom extends React.Component {
     }
     let selectedChannel = channels.find(c => c.id === selectedChannelId);
     let cur_messages = messages.filter(m => m.chatroom_id === selectedChannelId);
-
+    
     if (!cur_messages || !selectedChannel) {
       return <div />;
     }
     if (!users[currentUserId]) {
       return <div />;
     }
+    
+    // console.log(selectedChannel.user_ids);
+    // console.log(users);
+    let cur_users = selectedChannel.user_ids.map((user_id => users[user_id]));
+
     return <div className="chatroom">
         <div className="sidebar">
           <h3>App Academy</h3>
@@ -167,7 +172,17 @@ class Chatroom extends React.Component {
                 </i>
               </div>
               </button>
+            <ul ref={this.memberRef} className="memberlist">
+              {cur_users.map((user, idx) => {
+                return (
+                  <li key={idx}>
+                    {user.username}
+                  </li>
+                )
+              })}
+            </ul>
             </div>
+
           </div>
         </div>
 
