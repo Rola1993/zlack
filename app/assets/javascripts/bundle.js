@@ -1203,13 +1203,16 @@ function (_React$Component) {
         className: "arrow-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "material-icons"
-      }, "arrow_right"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        ref: this.memberRef,
-        className: "memberlist"
+      }, "arrow_drop_down"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        ref: this.memberRef
       }, cur_users.map(function (user, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: idx
-        }, user.username);
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: user.img_url,
+          height: "20",
+          width: "20"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, user.username));
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatbox"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

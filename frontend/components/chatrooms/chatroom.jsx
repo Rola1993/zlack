@@ -168,15 +168,16 @@ class Chatroom extends React.Component {
                 <span>{selectedChannel.user_ids.length} Members</span>
               <div className="arrow-right">
                 <i className="material-icons">
-                  arrow_right
+                  arrow_drop_down
                 </i>
               </div>
               </button>
-            <ul ref={this.memberRef} className="memberlist">
+            <ul ref={this.memberRef}>
               {cur_users.map((user, idx) => {
                 return (
                   <li key={idx}>
-                    {user.username}
+                    <img src={user.img_url} height="20" width="20" />
+                    <span>{user.username}</span>
                   </li>
                 )
               })}

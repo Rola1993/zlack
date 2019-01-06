@@ -319,8 +319,21 @@ div {
 
      }
 
-     .member-list{
+     ul{
        height: 200px;
+       text-align: left;
+
+       li{
+
+        img{
+          margin-top: 10px;
+          margin-left: 10px;
+        }
+
+        span{
+          margin-left: 10px;
+        }
+       }
      }
     }
 }
