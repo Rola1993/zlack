@@ -9,6 +9,8 @@ This is a app clone which has basic features of Slack. Users can do live chat in
 
 ![homepage](https://github.com/Rola1993/zlack/blob/master/app/assets/images/homepage.png)
 
+![chatpage](https://github.com/Rola1993/zlack/blob/master/app/assets/images/chatpage.png)
+
 When creating a new group chat, only users who are selected would be able to subscribe to and see that conversation. 
 
 ![createdm](https://github.com/Rola1993/zlack/blob/master/app/assets/images/create-dm.png)
