@@ -269,6 +269,7 @@ div {
           margin-left: 10px;
           padding-top: 12px; 
           font-family: 'Yantramanav', sans-serif;
+          color:#323334;
           font-weight: bold;
           font-size: 20px;
       }
@@ -324,6 +325,7 @@ div {
        text-align: left;
 
        li{
+         position: relative;
 
         img{
           margin-top: 10px;
@@ -333,6 +335,12 @@ div {
 
         span{
           margin-left: 10px;
+          position: absolute;
+          bottom: 5px;
+          font-family: 'Yantramanav', sans-serif;
+          font-size: 15px;
+          font-weight: bolder;
+          color:#323334;
         }
        }
      }
@@ -383,6 +391,7 @@ div {
       top: 12px;
       font-size: 19px;
       font-family: 'Yantramanav', sans-serif;
+      color:#323334;
     }
   }
 
@@ -560,6 +569,7 @@ div {
               font-size: 15px;
               font-weight: 900;
               font-family: sans-serif;
+              color:#323334;
             }
             .chat-message{
               font-size: 15px;
