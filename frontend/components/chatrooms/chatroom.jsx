@@ -15,13 +15,15 @@ class Chatroom extends React.Component {
     super(props);
     this.state = {
       currentChatMessage: '',
-      channels: this.props.channels
+      channels: this.props.channels,
+      showSettingMenu: false
     };
     this.createSocket = this.createSocket.bind(this);
     this.myRef = React.createRef();
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.openMemberList = this.openMemberList.bind(this);
+    this.showSettingMenu = this.showSettingMenu.bind(this);
+    this.closeSettingMenu = this.closeSettingMenu.bind(this);
   }
 
 
@@ -113,9 +115,20 @@ class Chatroom extends React.Component {
     infoModal.style.display = "none";
   }
 
-  openMemberList(e) {
+  showSettingMenu(e) {
+    e.preventDefault();
 
+    this.setState({ showSettingMenu: true }, () => {
+      document.addEventListener('click', this.closeSettingMenu);
+    });
   }
+
+  closeSettingMenu() {
+    this.setState({ showSettingMenu: false }, () => {
+      document.removeEventListener('click' , this.closeSettingMenu);
+    });
+  }
+
 
   render() {
     const users = this.props.users;
@@ -136,8 +149,6 @@ class Chatroom extends React.Component {
       return <div />;
     }
     
-    // console.log(selectedChannel.user_ids);
-    // console.log(users);
     let cur_users = selectedChannel.user_ids.map((user_id => users[user_id]));
 
     return <div className="chatroom">
@@ -153,9 +164,20 @@ class Chatroom extends React.Component {
           <button className="channel-info" id="channel-info" onClick={this.openModal}>
             &#9432;
           </button>
-        <button className="setting-btn"> 
+        <button className="setting-btn" onClick={this.showSettingMenu}> 
         <i className="material-icons md-20">settings</i> 
         </button>
+        {
+          this.state.showSettingMenu ? (
+            <div className="setting-menu">
+               <button> Invite new members to join... </button>
+               <button> View channel details </button>
+               <button> Notification preferences... </button>
+            </div>
+          ) : (
+            null
+          )
+        }
           <div ref={this.myRef} className="modal">
             <div className="modal-header">
               <p>About #{selectedChannel.name}</p>
@@ -164,7 +186,7 @@ class Chatroom extends React.Component {
               </button>
             </div>
             <div className="modal-content">
-              <button className="member-btn" onClick={this.openMemberList}>
+              <button className="member-btn">
                 <i id="person-icon" className="material-icons">
                   person_outline
                 </i>

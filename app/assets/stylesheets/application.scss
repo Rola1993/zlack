@@ -373,6 +373,10 @@ div {
       top: 5px;
     }
 
+    .channel-info:hover {
+      color:#3076B4;
+    }
+
     .setting-btn{
       position:fixed;
       color:#727375;
@@ -382,6 +386,30 @@ div {
       height:20px;
 
       .material-icons.md-20 { font-size: 20px; }
+    }
+
+    .setting-menu{
+      position: fixed;
+      right: 90px;
+      top: 42px;
+      border: 1px solid #E5E5E5;
+      width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 1px 0px 0px #E5E5E5;
+      z-index: 2;
+
+      button {
+        background-color: #fff;
+        width: 100%;
+        border: 0px;
+        height: 90%;
+        color: #2C2D30;
+      }
+
+      button:hover {
+        background-color: blue;
+        color: #fff;
+      }
     }
 
     .nav-title {
