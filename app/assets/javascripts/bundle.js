@@ -1166,7 +1166,7 @@ function (_React$Component) {
         className: "chatroom"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "App Academy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Code Academy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fa fa-circle",
         "aria-hidden": "true"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1183,7 +1183,11 @@ function (_React$Component) {
         className: "channel-info",
         id: "channel-info",
         onClick: this.openModal
-      }, "\u24D8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "\u24D8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "setting-btn"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "material-icons md-20"
+      }, "settings")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         ref: this.myRef,
         className: "modal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1199,7 +1203,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         id: "person-icon",
         className: "material-icons"
-      }, "person"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, selectedChannel.user_ids.length, " Members"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "person_outline"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, selectedChannel.user_ids.length, " Members"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "arrow-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "material-icons"

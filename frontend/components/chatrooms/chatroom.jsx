@@ -142,7 +142,7 @@ class Chatroom extends React.Component {
 
     return <div className="chatroom">
         <div className="sidebar">
-          <h3>App Academy</h3>
+          <h3>Code Academy</h3>
           <i className="fa fa-circle" aria-hidden="true" />
           <div className="username"> {users[currentUserId].username}</div>
           <button onClick={this.props.logout}>Log Out</button>
@@ -153,6 +153,9 @@ class Chatroom extends React.Component {
           <button className="channel-info" id="channel-info" onClick={this.openModal}>
             &#9432;
           </button>
+        <button className="setting-btn"> 
+        <i className="material-icons md-20">settings</i> 
+        </button>
           <div ref={this.myRef} className="modal">
             <div className="modal-header">
               <p>About #{selectedChannel.name}</p>
@@ -163,7 +166,7 @@ class Chatroom extends React.Component {
             <div className="modal-content">
               <button className="member-btn" onClick={this.openMemberList}>
                 <i id="person-icon" className="material-icons">
-                  person
+                  person_outline
                 </i>
                 <span>{selectedChannel.user_ids.length} Members</span>
               <div className="arrow-right">

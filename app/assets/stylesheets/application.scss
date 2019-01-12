@@ -251,7 +251,7 @@ div {
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   right: 0;
-  top: 66px;
+  top: 61px;
   width: 300px; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
@@ -328,6 +328,7 @@ div {
         img{
           margin-top: 10px;
           margin-left: 10px;
+          border-radius:4px;
         }
 
         span{
@@ -344,7 +345,7 @@ div {
   padding-left: 0px;
 
   .chatbox-nav{
-    height: 65px;
+    height: 60px;
     width: 100%;
     background-color: #fff;
     position: fixed;
@@ -354,11 +355,25 @@ div {
     border-bottom: 1px solid #E5E5E5;
 
     .channel-info{
+      font-weight: bolder;
       font-size: 18px;
+      color:#727375;
       border:0px;
       position: fixed;
-      right: 50px;
+      right: 350px;
+      height: 20px;
       top: 5px;
+    }
+
+    .setting-btn{
+      position:fixed;
+      color:#727375;
+      right:310px;
+      top:7px;
+      border: 0px;
+      height:20px;
+
+      .material-icons.md-20 { font-size: 20px; }
     }
 
     .nav-title {
@@ -527,7 +542,7 @@ div {
 
     .chat-logs {
       z-index: -1;
-      margin-top: 10px;
+      margin-top: 65px;
       overflow-y: scroll;
       margin-left: 10px;
       margin-bottom: 80px;
